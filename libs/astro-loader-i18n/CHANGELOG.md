@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.8
+
+### Patch Changes
+
+- bd183ef: Upgrade dependencies
+
 ## 0.7.7
 
 ### Patch Changes
