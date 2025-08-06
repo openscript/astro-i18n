@@ -9,8 +9,8 @@ This monorepo contains tools to help you with i18n in Astro projects.
 
 ### Public packages
 
-- [astro-loader-i18n](libs/astro-loader-i18n): A loader for Astro that automatically extracts messages from your components and generates a translation file.
-- [astro-nanostores-i18n](libs/astro-nanostores-i18n): An integration of [@nanostores/i18n](https://github.com/nanostores/i18n) into Astro. It provides a simple way to manage translations in your Astro components using nanostores.
+- [astro-loader-i18n](libs/astro-loader-i18n) is a **content loader** for internationalized content in [Astro](https://astro.build). It builds on top of Astro’s [`glob()` loader](https://docs.astro.build/en/reference/content-loader-reference/#glob-loader) and helps manage translations by detecting locales, mapping content, and enriching `getStaticPaths`.
+- [astro-nanostores-i18n](libs/astro-nanostores-i18n) is an integration of [@nanostores/i18n](https://github.com/nanostores/i18n) into [Astro](https://astro.build/).
 
 ### Private packages
 
