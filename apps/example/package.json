@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@astrojs/mdx": "^4.3.3",
+    "@astrojs/mdx": "^4.3.4",
     "@nanostores/i18n": "^1.2.2",
-    "astro": "^5.12.9",
+    "astro": "^5.13.2",
     "astro-loader-i18n": "workspace:*",
     "astro-nanostores-i18n": "workspace:*",
     "limax": "^4.1.0"
