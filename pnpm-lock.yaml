@@ -67,13 +67,13 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^4.3.4
-        version: 4.3.4(astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))
+        version: 4.3.4(astro@5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))
       '@nanostores/i18n':
         specifier: ^1.2.2
         version: 1.2.2(nanostores@1.0.1)
       astro:
         specifier: ^5.13.2
-        version: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+        version: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       astro-loader-i18n:
         specifier: workspace:*
         version: link:../../libs/astro-loader-i18n
@@ -100,7 +100,7 @@ importers:
         version: 3.2.4(vitest@3.2.4)
       astro:
         specifier: ^5.13.2
-        version: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+        version: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       astro-utils-i18n:
         specifier: workspace:*
         version: link:../astro-utils-i18n
@@ -139,7 +139,7 @@ importers:
         version: 1.2.0(nanostores@1.0.1)
       astro-integration-kit:
         specifier: ^0.19.0
-        version: 0.19.0(astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))
+        version: 0.19.0(astro@5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -164,7 +164,7 @@ importers:
         version: 3.2.4(vitest@3.2.4)
       astro:
         specifier: ^5.13.2
-        version: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+        version: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       astro-utils-i18n:
         specifier: workspace:*
         version: link:../astro-utils-i18n
@@ -206,7 +206,7 @@ importers:
         version: 3.2.4(vitest@3.2.4)
       astro:
         specifier: ^5.13.2
-        version: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+        version: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       eslint:
         specifier: ^9.33.0
         version: 9.33.0(jiti@2.5.1)
@@ -375,11 +375,6 @@ packages:
   '@babel/helpers@7.28.3':
     resolution: {integrity: sha512-PTNtvUQihsAsDHMOP5pfobP8C6CM4JWXmP8DrEIt46c3r2bf87Ua1zoqevsMo9g+tWDwgWrFP5EIxuBx5RudAw==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/parser@7.27.5':
-    resolution: {integrity: sha512-OsQd175SxWkGlzbny8J3K8TnnDD0N3lrIUtB92xwyRpzaenGZhxDvxN/JgU00U3CDZNj9tPuDJ5H0WS4Nt3vKg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
 
   '@babel/parser@7.28.3':
     resolution: {integrity: sha512-7+Ey1mAgYqFAx2h0RuoxcQT5+MlG3GTV0TQrgr7/ZliKsm/MNDxVVutlWaziMq7wJNAz8MTqz55XLpWvva6StA==}
@@ -809,10 +804,6 @@ packages:
 
   '@babel/traverse@7.28.3':
     resolution: {integrity: sha512-7w4kZYHneL3A6NP2nxzHvT3HCZ7puDZZjFMqDpBPECub79sTtSO5CGXDkKrTQq8ksAwfD/XI2MRFX23njdDaIQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/types@7.27.6':
-    resolution: {integrity: sha512-ETyHEk2VHHvl9b9jZP5IHPavHYk57EhanlRRuae9XCpb/j5bDCbPPMOBfCWhnl/7EDJz0jEMCi/RhccCE8r1+Q==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.28.2':
@@ -2113,8 +2104,8 @@ packages:
     peerDependencies:
       astro: ^4.14.0 || ^5.0.0
 
-  astro@5.13.2:
-    resolution: {integrity: sha512-yjcXY0Ua3EwjpVd3GoUXa65HQ6qgmURBptA+M9GzE0oYvgfuyM7bIbH8IR/TWIbdefVUJR5b7nZ0oVnMytmyfQ==}
+  astro@5.13.3:
+    resolution: {integrity: sha512-V0mUOUK70UZ7xqXp5Noqse/SREU0P756KgFufBEluq5LkmBejzC2GENMUA2Na+PFwUjemElJtRlpKyrnKpFhSQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3271,6 +3262,9 @@ packages:
 
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
+
+  magic-string@0.30.18:
+    resolution: {integrity: sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ==}
 
   magicast@0.3.5:
     resolution: {integrity: sha512-L0WhttDl+2BOsybvEOLK7fW3UA0OQ0IQ2d6Zl2x/a6vVRs3bAY0ECOSHHeL5jD+SbOpOCUEi0y1DgHEn9Qn1AQ==}
@@ -4730,12 +4724,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.3.4(astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))':
+  '@astrojs/mdx@4.3.4(astro@5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.6
       '@mdx-js/mdx': 3.1.0(acorn@8.15.0)
       acorn: 8.15.0
-      astro: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+      astro: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4918,10 +4912,6 @@ snapshots:
     dependencies:
       '@babel/template': 7.27.2
       '@babel/types': 7.28.2
-
-  '@babel/parser@7.27.5':
-    dependencies:
-      '@babel/types': 7.27.6
 
   '@babel/parser@7.28.3':
     dependencies:
@@ -5475,11 +5465,6 @@ snapshots:
       debug: 4.4.1
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/types@7.27.6':
-    dependencies:
-      '@babel/helper-string-parser': 7.27.1
-      '@babel/helper-validator-identifier': 7.27.1
 
   '@babel/types@7.28.2':
     dependencies:
@@ -6733,7 +6718,7 @@ snapshots:
 
   '@vue/compiler-core@3.5.16':
     dependencies:
-      '@babel/parser': 7.27.5
+      '@babel/parser': 7.28.3
       '@vue/shared': 3.5.16
       entities: 4.5.0
       estree-walker: 2.0.2
@@ -6866,12 +6851,12 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-integration-kit@0.19.0(astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)):
+  astro-integration-kit@0.19.0(astro@5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)):
     dependencies:
-      astro: 5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
+      astro: 5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1)
       pathe: 1.1.2
 
-  astro@5.13.2(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1):
+  astro@5.13.3(@types/node@24.3.0)(jiti@2.5.1)(rollup@4.45.1)(typescript@5.9.2)(yaml@2.8.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.2
@@ -6906,7 +6891,7 @@ snapshots:
       import-meta-resolve: 4.1.0
       js-yaml: 4.1.0
       kleur: 4.1.5
-      magic-string: 0.30.17
+      magic-string: 0.30.18
       magicast: 0.3.5
       mrmime: 2.0.1
       neotraverse: 0.6.18
@@ -8241,10 +8226,14 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  magic-string@0.30.18:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.5.5
+
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.27.5
-      '@babel/types': 7.27.6
+      '@babel/parser': 7.28.3
+      '@babel/types': 7.28.2
       source-map-js: 1.2.1
 
   make-dir@4.0.0:
