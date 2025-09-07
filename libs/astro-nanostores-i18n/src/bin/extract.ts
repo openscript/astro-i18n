@@ -12,6 +12,10 @@ import * as ts from "typescript";
 const { values } = parseArgs({
   args: process.argv.slice(2),
   options: {
+    identifier: {
+      type: "string",
+      default: "messages",
+    },
     glob: {
       type: "string",
       default: "./src/**/*.astro",
@@ -33,6 +37,7 @@ if (values.help) {
 Usage: extract-messages [options]
 
 Options:
+  --identifier <name> Variable name to extract messages from (default: "messages")
   --glob <pattern>    Glob pattern for finding Astro files (default: "./src/**/*.astro")
   --out <path>        Output path for messages file (default: "./src/translations/extract.json")
   --help, -h          Show this help message
@@ -61,7 +66,7 @@ function extractMessagesFromAST(code: string) {
   function visit(node: ts.Node) {
     if (ts.isVariableStatement(node)) {
       const declaration = node.declarationList.declarations[0];
-      if (ts.isIdentifier(declaration.name) && declaration.name.text === "messages" && declaration.initializer) {
+      if (ts.isIdentifier(declaration.name) && declaration.name.text === values.identifier && declaration.initializer) {
         messagesExport = node.getText();
       }
     }
