@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.7.9
+
+### Patch Changes
+
+- 42e7515: Fix resolvePath typing
+
 ## 0.7.8
 
 ### Patch Changes

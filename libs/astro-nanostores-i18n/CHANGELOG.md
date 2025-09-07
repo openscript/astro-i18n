@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.1.6
+
+### Patch Changes
+
+- 68ef82d: Make i18n messages indentifier configurable
+
 ## 0.1.5
 
 ### Patch Changes
