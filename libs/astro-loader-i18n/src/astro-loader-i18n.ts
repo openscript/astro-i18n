@@ -4,4 +4,9 @@ export { localized } from "./schemas/i18n-content-schema";
 export { extendI18nLoaderSchema, i18nLoaderSchema } from "./schemas/i18n-loader-schema";
 export { i18nPropsAndParams, i18nProps } from "./props-and-params/i18n-props-and-params";
 export { createI18nCollection } from "./collections/create-i18n-collection";
-export { resolvePath } from "astro-utils-i18n";
+
+import { resolvePath as _resolvePath } from "astro-utils-i18n";
+
+type resolvePathType = (...paths: Array<string | number | undefined>) => string;
+
+export const resolvePath: resolvePathType = _resolvePath;
