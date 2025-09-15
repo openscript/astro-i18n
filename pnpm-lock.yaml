@@ -133,7 +133,7 @@ importers:
     dependencies:
       '@astrojs/compiler':
         specifier: ^2.12.2
-        version: 2.12.2
+        version: 2.13.0
       '@nanostores/i18n':
         specifier: ^1.2.0
         version: 1.2.0(nanostores@1.0.1)
@@ -252,6 +252,9 @@ packages:
 
   '@astrojs/compiler@2.12.2':
     resolution: {integrity: sha512-w2zfvhjNCkNMmMMOn5b0J8+OmUaBL1o40ipMvqcG6NRpdC+lKxmTi48DT8Xw0SzJ3AfmeFLB45zXZXtmbsjcgw==}
+
+  '@astrojs/compiler@2.13.0':
+    resolution: {integrity: sha512-mqVORhUJViA28fwHYaWmsXSzLO9osbdZ5ImUfxBarqsYdMlPbqAqGJCxsNzvppp1BEzc1mJNjOVvQqeDN8Vspw==}
 
   '@astrojs/internal-helpers@0.7.2':
     resolution: {integrity: sha512-KCkCqR3Goym79soqEtbtLzJfqhTWMyVaizUi35FLzgGSzBotSw8DB1qwsu7U96ihOJgYhDk2nVPz+3LnXPeX6g==}
@@ -4730,6 +4733,8 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.25
 
   '@astrojs/compiler@2.12.2': {}
+
+  '@astrojs/compiler@2.13.0': {}
 
   '@astrojs/internal-helpers@0.7.2': {}
 
