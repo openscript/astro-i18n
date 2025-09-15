@@ -1,11 +1,11 @@
 {
   "name": "root",
   "private": true,
-  "homepage": "https://github.com/openscript/astro-loader-i18n",
+  "homepage": "https://github.com/openscript/astro-i18n",
   "license": "MIT",
   "author": "Robin Bühler",
-  "repository": "github:openscript/astro-loader-i18n",
-  "packageManager": "pnpm@10.15.1",
+  "repository": "github:openscript/astro-i18n",
+  "packageManager": "pnpm@10.16.1",
   "type": "module",
   "scripts": {
     "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 10 --output-style stream",
