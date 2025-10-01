@@ -251,7 +251,7 @@
 
 Sometimes to have multilingual content in a single file is more convenient. For example data for menus or galleries. This allows sharing untranslated content across locales.
 
-Use the `i18nContentLoader` loader to load in-file localized content.
+Use the `i18nContentLoader` loader to load in-file localized content. If you want to load a single file, you can use the `i18nFileLoader`.
 
 1. Create a collection:
    <details>
@@ -360,6 +360,12 @@ It adds the following properties to an entrys `data` object:
 `i18nContentLoader` creates multiple entries based on yaml or json files that contain i18n text fields.
 
 See [i18nLoader](#i18nloader) for more information.
+
+### `i18nFileLoader`
+
+`i18nFileLoader` creates multiple entries based on a single yaml or json that contain i18n text fields.
+
+It is a wrapper around the `file()` loader. See the [Astro documentation](https://docs.astro.build/en/reference/content-loader-reference/#file-loader) for more information.
 
 ### `localized`
 
