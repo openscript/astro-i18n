@@ -1,6 +1,6 @@
 {
   "name": "astro-loader-i18n",
-  "version": "0.7.9",
+  "version": "0.8.0",
   "description": "An Astro content loader for i18n files and folder structures.",
   "keywords": [
     "astro",

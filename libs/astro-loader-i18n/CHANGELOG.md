@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.8.0
+
+### Minor Changes
+
+- 8a33e03: Add i18n file loader
+
 ## 0.7.9
 
 ### Patch Changes
