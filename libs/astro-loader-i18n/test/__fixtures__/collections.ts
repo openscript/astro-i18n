@@ -181,3 +181,24 @@ export const contentCollectionFixture: DataEntry[] = [
     },
   },
 ];
+
+export const contentFixture: DataEntry[] = [
+  {
+    id: "space",
+    filePath: "src/content/gallery/space.yml",
+    data: {
+      title: {
+        "de-CH": "Weltraum",
+        "zh-CN": "太空",
+      },
+      cover: "./space1.jpg",
+      images: [
+        { src: "./space1.jpg", title: { "de-CH": "Weltraum1", "zh-CN": "Space1" } },
+        { src: "./space2.jpg", title: { "de-CH": "Weltraum2", "zh-CN": "Space2" } },
+        { src: "./space3.jpg", title: { "de-CH": "Weltraum3", "zh-CN": "Space3" } },
+        { src: "./space4.jpg", title: { "de-CH": "Weltraum4", "zh-CN": "Space4" } },
+        { src: "./space5.jpg", title: { "de-CH": "Weltraum5", "zh-CN": "Space5" } },
+      ],
+    },
+  },
+];

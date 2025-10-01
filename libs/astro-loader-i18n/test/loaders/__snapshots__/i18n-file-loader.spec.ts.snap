@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`i18nFileLoader > should put common translation id and locale in data 1`] = `
+[
+  [
+    "space/de-CH",
+    {
+      "data": {
+        "basePath": "/",
+        "contentPath": "src/content/gallery",
+        "cover": "./space1.jpg",
+        "images": [
+          {
+            "src": "./space1.jpg",
+            "title": "Weltraum1",
+          },
+          {
+            "src": "./space2.jpg",
+            "title": "Weltraum2",
+          },
+          {
+            "src": "./space3.jpg",
+            "title": "Weltraum3",
+          },
+          {
+            "src": "./space4.jpg",
+            "title": "Weltraum4",
+          },
+          {
+            "src": "./space5.jpg",
+            "title": "Weltraum5",
+          },
+        ],
+        "locale": "de-CH",
+        "title": "Weltraum",
+        "translationId": "src/content/gallery/space.yml",
+      },
+      "filePath": "src/content/gallery/space.yml",
+      "id": "space/de-CH",
+    },
+  ],
+  [
+    "space/zh-CN",
+    {
+      "data": {
+        "basePath": "/",
+        "contentPath": "src/content/gallery",
+        "cover": "./space1.jpg",
+        "images": [
+          {
+            "src": "./space1.jpg",
+            "title": "Space1",
+          },
+          {
+            "src": "./space2.jpg",
+            "title": "Space2",
+          },
+          {
+            "src": "./space3.jpg",
+            "title": "Space3",
+          },
+          {
+            "src": "./space4.jpg",
+            "title": "Space4",
+          },
+          {
+            "src": "./space5.jpg",
+            "title": "Space5",
+          },
+        ],
+        "locale": "zh-CN",
+        "title": "太空",
+        "translationId": "src/content/gallery/space.yml",
+      },
+      "filePath": "src/content/gallery/space.yml",
+      "id": "space/zh-CN",
+    },
+  ],
+]
+`;
+
+exports[`i18nFileLoader > should throw error if i18n config is missing 1`] = `[Error: i18n configuration is missing in your astro config]`;
