@@ -357,7 +357,7 @@ It adds the following properties to an entrys `data` object:
 
 ### `i18nContentLoader`
 
-`i18nContentLoader` creates multiple entries from a single yaml or json file.
+`i18nContentLoader` creates multiple entries based on yaml or json files that contain i18n text fields.
 
 See [i18nLoader](#i18nloader) for more information.
 
