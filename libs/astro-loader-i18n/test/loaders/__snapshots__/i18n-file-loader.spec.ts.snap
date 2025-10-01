@@ -1,5 +1,42 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`i18nFileLoader > should handle input without i18n 1`] = `
+[
+  [
+    "omni",
+    {
+      "data": {
+        "basePath": "/",
+        "contentPath": "src/content/gallery",
+        "cover": "./animals1.jpg",
+        "images": [
+          {
+            "src": "./animals1.jpg",
+          },
+          {
+            "src": "./animals2.jpg",
+          },
+          {
+            "src": "./animals3.jpg",
+          },
+          {
+            "src": "./animals4.jpg",
+          },
+          {
+            "src": "./animals5.jpg",
+          },
+        ],
+        "locale": "und",
+        "title": "Omni",
+        "translationId": "src/content/gallery/omni.yml",
+      },
+      "filePath": "src/content/gallery/omni.yml",
+      "id": "omni",
+    },
+  ],
+]
+`;
+
 exports[`i18nFileLoader > should put common translation id and locale in data 1`] = `
 [
   [

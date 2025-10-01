@@ -1,15 +1,16 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { LoaderContext } from "astro/loaders";
 import { createLoaderContext } from "../__mocks__/loader-context";
-import { contentFixture } from "../__fixtures__/collections";
+import { contentFileFixture, contentFileWithoutFixture } from "../__fixtures__/collections";
 import { i18nFileLoader } from "../../src/loaders/i18n-file-loader";
 
 vi.mock("astro/loaders", () => {
   return {
-    file: () => {
+    file: (filePath: string) => {
       return {
         load: vi.fn().mockImplementation(async (context: LoaderContext) => {
-          contentFixture.forEach(async (entry) => {
+          const fixture = filePath.includes("omni.yml") ? contentFileWithoutFixture : contentFileFixture;
+          fixture.forEach(async (entry) => {
             context.store.set({ ...entry, data: await context.parseData(entry) });
           });
         }),
@@ -27,6 +28,14 @@ describe("i18nFileLoader", () => {
 
   it("should put common translation id and locale in data", async () => {
     const loader = i18nFileLoader("/content/gallery/space.yml");
+    await loader.load(context);
+
+    const entries = context.store.entries();
+    expect(entries).toMatchSnapshot();
+  });
+
+  it("should handle input without i18n", async () => {
+    const loader = i18nFileLoader("/content/gallery/omni.yml");
     await loader.load(context);
 
     const entries = context.store.entries();
