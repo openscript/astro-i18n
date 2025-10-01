@@ -415,7 +415,7 @@ Made by the community:
 
 ## Roadmap
 
-- [ ] Add `i18nFileLoader` that is based on Astros `file()` loader
+- [x] Add `i18nFileLoader` that is based on Astros `file()` loader
 - [ ] Improve types of params returned by `i18nPropsAndParams`
 - [ ] Include a language switcher Astro component
 
