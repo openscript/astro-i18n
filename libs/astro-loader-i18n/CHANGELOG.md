@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.8.1
+
+### Patch Changes
+
+- 651a9e0: Support objects nested in arrays in i18n content
+
 ## 0.8.0
 
 ### Minor Changes
