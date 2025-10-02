@@ -33,7 +33,7 @@
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
     "@eslint/js": "^9.36.0",
-    "@types/node": "^24.6.1",
+    "@types/node": "^24.6.2",
     "@vitest/coverage-v8": "^3.2.4",
     "astro": "^5.14.1",
     "astro-utils-i18n": "workspace:*",
