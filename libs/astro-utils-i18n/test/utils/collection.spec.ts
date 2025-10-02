@@ -22,6 +22,66 @@ describe("getAllUniqueKeys", () => {
     });
     expect(result).toMatchSnapshot();
   });
+
+  it("should return all unique keys of an object nested in an array", () => {
+    const result = getAllUniqueKeys({
+      a: [
+        {
+          z: 1,
+          y: {
+            de: 2,
+            en: 3,
+          },
+        },
+        {
+          z: 4,
+          y: {
+            de: 5,
+            en: 6,
+          },
+        },
+      ],
+    });
+    expect(result).toMatchSnapshot();
+  });
+
+  it("should return all unique keys of an object with arrays in arrays", () => {
+    const result = getAllUniqueKeys({
+      a: [
+        [
+          {
+            z: 1,
+            y: [
+              {
+                de: 2,
+                en: 3,
+              },
+              {
+                de: 4,
+                en: 5,
+              },
+            ],
+          },
+        ],
+        [
+          {
+            z: 6,
+            y: [
+              {
+                de: 7,
+                en: 8,
+              },
+              {
+                de: 9,
+                en: 10,
+              },
+            ],
+          },
+        ],
+      ],
+    });
+    expect(result).toMatchSnapshot();
+  });
 });
 
 describe("pruneLocales", () => {

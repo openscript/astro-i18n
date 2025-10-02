@@ -13,6 +13,26 @@ Set {
 }
 `;
 
+exports[`getAllUniqueKeys > should return all unique keys of an object nested in an array 1`] = `
+Set {
+  "a",
+  "z",
+  "y",
+  "de",
+  "en",
+}
+`;
+
+exports[`getAllUniqueKeys > should return all unique keys of an object with arrays in arrays 1`] = `
+Set {
+  "a",
+  "z",
+  "y",
+  "de",
+  "en",
+}
+`;
+
 exports[`pruneLocales > should prune locales with nested data 1`] = `
 {
   "array": [
