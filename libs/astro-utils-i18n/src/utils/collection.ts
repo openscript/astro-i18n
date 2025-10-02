@@ -1,8 +1,22 @@
-export function getAllUniqueKeys(obj: Record<string, unknown>, keys = new Set<string>()): Set<string> {
+export function getAllUniqueKeys(obj: Record<string, unknown>, keys = new Set<string>(), ignore?: boolean): Set<string> {
   Object.entries(obj).forEach(([key, value]) => {
-    keys.add(key);
-    if (value && typeof value === "object" && !Array.isArray(value)) {
-      getAllUniqueKeys(value as Record<string, unknown>, keys);
+    if (!ignore) keys.add(key);
+    if (value && typeof value === "object") {
+      if (Array.isArray(value)) {
+        value.forEach((item) => {
+          if (item && typeof item === "object") {
+            // Recurse into objects and arrays within arrays
+            if (Array.isArray(item)) {
+              // Wrap array in an object to reuse the function and ignore its key
+              getAllUniqueKeys({ array: item }, keys, true);
+            } else {
+              getAllUniqueKeys(item as Record<string, unknown>, keys);
+            }
+          }
+        });
+      } else {
+        getAllUniqueKeys(value as Record<string, unknown>, keys);
+      }
     }
   });
   return keys;

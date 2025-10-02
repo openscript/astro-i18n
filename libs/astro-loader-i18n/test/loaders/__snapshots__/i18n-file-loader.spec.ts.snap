@@ -113,6 +113,68 @@ exports[`i18nFileLoader > should put common translation id and locale in data 1`
       "id": "space/zh-CN",
     },
   ],
+  [
+    "gallery/de-CH",
+    {
+      "data": {
+        "basePath": "/",
+        "contentPath": "src/content/gallery",
+        "items": [
+          {
+            "label": "Robin improvisiert beim Arbeiten",
+            "photo": "./team/robin.jpg",
+          },
+          {
+            "label": "Robin präsentiert",
+            "photo": "./team/robin-presents.jpeg",
+          },
+          {
+            "label": "Unser Labor",
+            "photo": "./team/our-lab.jpg",
+          },
+          {
+            "label": "Team-Retreat 2024",
+            "photo": "./team/retraite-2024.jpg",
+          },
+        ],
+        "locale": "de-CH",
+        "translationId": "src/content/gallery/gallery.yml",
+      },
+      "filePath": "src/content/gallery/gallery.yml",
+      "id": "gallery/de-CH",
+    },
+  ],
+  [
+    "gallery/zh-CN",
+    {
+      "data": {
+        "basePath": "/",
+        "contentPath": "src/content/gallery",
+        "items": [
+          {
+            "label": "Robin即兴工作",
+            "photo": "./team/robin.jpg",
+          },
+          {
+            "label": "Robin演示",
+            "photo": "./team/robin-presents.jpeg",
+          },
+          {
+            "label": "我们的实验室",
+            "photo": "./team/our-lab.jpg",
+          },
+          {
+            "label": "团队静修2024",
+            "photo": "./team/retraite-2024.jpg",
+          },
+        ],
+        "locale": "zh-CN",
+        "translationId": "src/content/gallery/gallery.yml",
+      },
+      "filePath": "src/content/gallery/gallery.yml",
+      "id": "gallery/zh-CN",
+    },
+  ],
 ]
 `;
 

@@ -201,6 +201,42 @@ export const contentFileFixture: DataEntry[] = [
       ],
     },
   },
+  {
+    id: "gallery",
+    filePath: "src/content/gallery/gallery.yml",
+    data: {
+      items: [
+        {
+          photo: "./team/robin.jpg",
+          label: {
+            "de-CH": "Robin improvisiert beim Arbeiten",
+            "zh-CN": "Robin即兴工作",
+          },
+        },
+        {
+          photo: "./team/robin-presents.jpeg",
+          label: {
+            "de-CH": "Robin präsentiert",
+            "zh-CN": "Robin演示",
+          },
+        },
+        {
+          photo: "./team/our-lab.jpg",
+          label: {
+            "de-CH": "Unser Labor",
+            "zh-CN": "我们的实验室",
+          },
+        },
+        {
+          photo: "./team/retraite-2024.jpg",
+          label: {
+            "de-CH": "Team-Retreat 2024",
+            "zh-CN": "团队静修2024",
+          },
+        },
+      ],
+    },
+  },
 ];
 
 export const contentFileWithoutFixture: DataEntry[] = [
