@@ -54,4 +54,8 @@ describe("buildPath", () => {
     const routePattern = parseRoutePattern("/blog/[...slug]/comments/[commentId]");
     expect(buildPath(routePattern, { slug: "bli/bla/blub", commentId: "2" }, "/")).toMatchSnapshot();
   });
+  it("should replace non params with segments", () => {
+    const routePattern = parseRoutePattern("/blog/[...slug]/comments/[commentId]");
+    expect(buildPath(routePattern, { slug: "bli/bla/blub", commentId: "2", comments: "kommentare" }, "/")).toMatchSnapshot();
+  });
 });
