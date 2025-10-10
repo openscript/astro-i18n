@@ -2,8 +2,6 @@
 
 exports[`buildPath > should build valid paths 1`] = `"/blog/bli/bla/blub/comments/2"`;
 
-exports[`buildPath > should replace non params with segments 1`] = `"/blog/bli/bla/blub/kommentare/2"`;
-
 exports[`buildPath > should throw if is filled with a path and param is not spread 1`] = `[Error: The segment value "bli/bla/blub" for route segment "slug" contains a slash. Did you forget to add "..." to the route pattern?]`;
 
 exports[`buildPath > should throw if no segment matches a param 1`] = `[Error: No segment value found for route segment "slug". Did you forget to provide it?]`;

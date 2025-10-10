@@ -72,7 +72,7 @@ export function buildPath(routePattern: RoutePattern, segmentValues: Segments, b
         return segmentValues[segment.value];
       }
 
-      return segmentValues[segment.value] ?? `${segment.value}`;
+      return `${segment.value}`;
     })
   );
 }
