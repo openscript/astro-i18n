@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.9.1
+
+### Patch Changes
+
+- 8b3d4f9: Revert non-param replacement
+
 ## 0.9.0
 
 ### Minor Changes
