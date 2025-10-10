@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.2.1
+
+### Patch Changes
+
+- 8b3d4f9: Revert non-param replacement
+
 ## 0.2.0
 
 ### Minor Changes
