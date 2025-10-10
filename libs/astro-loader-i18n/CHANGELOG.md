@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.9.0
+
+### Minor Changes
+
+- 414a64a: Replace non-params with segments when buildPath
+
 ## 0.8.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.2.0
+
+### Minor Changes
+
+- 414a64a: Replace non-params with segments when buildPath
+
 ## 0.1.6
 
 ### Patch Changes
