@@ -139,7 +139,7 @@ importers:
         version: 1.2.2(nanostores@1.0.1)
       astro-integration-kit:
         specifier: ^0.19.0
-        version: 0.19.0(astro@5.14.3(@types/node@24.7.1)(jiti@2.6.1)(rollup@4.52.3)(typescript@5.9.3)(yaml@2.8.1))
+        version: 0.19.1(astro@5.14.3(@types/node@24.7.1)(jiti@2.6.1)(rollup@4.52.3)(typescript@5.9.3)(yaml@2.8.1))
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -1961,8 +1961,8 @@ packages:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
 
-  astro-integration-kit@0.19.0:
-    resolution: {integrity: sha512-ftDrem91kJZoenhpJJfRtB29D/bmNglEp2oOXqF1uL5yODZauGIy3tDgIbec0UEMp6tNuky4tfWseUXpej5Dng==}
+  astro-integration-kit@0.19.1:
+    resolution: {integrity: sha512-0MORMlwJXM3d2RlYoFMKpdBTEOqFEZ7rY5TnQssLsUTfaZgF4XkNJW0mNsDiOdM9LgDn9Px2dZtz8NbuUW75nw==}
     peerDependencies:
       astro: ^4.14.0 || ^5.0.0
 
@@ -6594,7 +6594,7 @@ snapshots:
 
   astring@1.9.0: {}
 
-  astro-integration-kit@0.19.0(astro@5.14.3(@types/node@24.7.1)(jiti@2.6.1)(rollup@4.52.3)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-integration-kit@0.19.1(astro@5.14.3(@types/node@24.7.1)(jiti@2.6.1)(rollup@4.52.3)(typescript@5.9.3)(yaml@2.8.1)):
     dependencies:
       astro: 5.14.3(@types/node@24.7.1)(jiti@2.6.1)(rollup@4.52.3)(typescript@5.9.3)(yaml@2.8.1)
       pathe: 1.1.2
