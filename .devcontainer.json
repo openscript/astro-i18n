@@ -1,6 +1,6 @@
 {
   "name": "astro-i18n",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:3-22-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,7 +13,7 @@
       ]
     }
   },
-  "postCreateCommand": "npm install -g npm@11.6.0 pnpm@10.18.2",
+  "postCreateCommand": "npm install -g npm@11.6.0 pnpm@10.20.0",
   "forwardPorts": [
     4321
   ]
