@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.9.2
+
+### Patch Changes
+
+- cd8d776: Upgrade dependencies
+
 ## 0.9.1
 
 ### Patch Changes
