@@ -70,7 +70,7 @@ importers:
         version: 4.3.10(astro@5.15.4(@types/node@24.10.0)(jiti@2.6.1)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.8.1))
       '@nanostores/i18n':
         specifier: ^1.2.2
-        version: 1.2.2(nanostores@1.0.1)
+        version: 1.2.2(nanostores@1.1.0)
       astro:
         specifier: ^5.15.4
         version: 5.15.4(@types/node@24.10.0)(jiti@2.6.1)(rollup@4.53.1)(typescript@5.9.3)(yaml@2.8.1)
@@ -145,7 +145,7 @@ importers:
         version: 3.3.3
       nanostores:
         specifier: ^1.0.1
-        version: 1.0.1
+        version: 1.1.0
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -3317,6 +3317,10 @@ packages:
     resolution: {integrity: sha512-kNZ9xnoJYKg/AfxjrVL4SS0fKX++4awQReGqWnwTRHxeHGZ1FJFVgTqr/eMrNQdp0Tz7M7tG/TDaX8QfHDwVCw==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
+  nanostores@1.1.0:
+    resolution: {integrity: sha512-yJBmDJr18xy47dbNVlHcgdPrulSn1nhSE6Ns9vTG+Nx9VPT6iV1MD6aQFp/t52zpf82FhLLTXAXr30NuCnxvwA==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -5771,6 +5775,10 @@ snapshots:
   '@nanostores/i18n@1.2.2(nanostores@1.0.1)':
     dependencies:
       nanostores: 1.0.1
+
+  '@nanostores/i18n@1.2.2(nanostores@1.1.0)':
+    dependencies:
+      nanostores: 1.1.0
 
   '@napi-rs/wasm-runtime@0.2.4':
     dependencies:
@@ -8321,6 +8329,8 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanostores@1.0.1: {}
+
+  nanostores@1.1.0: {}
 
   natural-compare@1.4.0: {}
 
