@@ -26,7 +26,7 @@
       "command": "cp LICENSE libs/astro-utils-i18n && rm libs/astro-utils-i18n/dist/package.json"
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "@nx/vitest:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "reportsDirectory": "./coverage",

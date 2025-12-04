@@ -13,7 +13,6 @@
       ]
     }
   },
-  "postCreateCommand": "npm install -g npm@11.6.0 pnpm@10.20.0",
   "forwardPorts": [
     4321
   ]
