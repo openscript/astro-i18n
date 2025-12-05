@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.1
+
+### Patch Changes
+
+- cfc76ef: Switch to OIDC provenance publication
+
 ## 0.10.0
 
 ### Minor Changes
