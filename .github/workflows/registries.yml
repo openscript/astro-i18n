@@ -37,4 +37,6 @@ jobs:
         run: pnpm prepublish
 
       - name: Publish packages on NPM
-        run: NODE_AUTH_TOKEN="" pnpm publish -r --no-git-checks
+        run: pnpm publish -r --no-git-checks --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: '' # See https://github.com/actions/setup-node/issues/1440
