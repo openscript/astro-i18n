@@ -48,6 +48,9 @@ jobs:
     name: Deliver packages
     uses: ./.github/workflows/registries.yml
     needs: publish-packages
+    permissions:
+      id-token: write
+      contents: read
     with:
       ref: ${{ needs.publish-packages.outputs.ref }}
     secrets: inherit
