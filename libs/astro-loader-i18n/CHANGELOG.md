@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.8
+
+### Patch Changes
+
+- f6a3129: Remove npm token
+
 ## 0.10.7
 
 ### Patch Changes
