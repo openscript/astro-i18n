@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.4
+
+### Patch Changes
+
+- 61fcdd0: Fix npm publication
+
 ## 0.10.3
 
 ### Patch Changes
