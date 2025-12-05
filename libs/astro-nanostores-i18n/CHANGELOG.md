@@ -1,5 +1,12 @@
 # astro-nanostores-i18n
 
+## 0.2.2
+
+### Patch Changes
+
+- cd8d776: Upgrade dependencies
+- 442af4e: Consolidate vitest configuration
+
 ## 0.2.1
 
 ### Patch Changes
