@@ -30,7 +30,8 @@
       "outputs": ["{options.reportsDirectory}"],
       "options": {
         "reportsDirectory": "./coverage",
-        "coverage": true
+        "coverage": true,
+        "configFile": "{workspaceRoot}/vitest.config.ts"
       }
     },
     "lint": {

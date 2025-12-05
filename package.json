@@ -25,6 +25,7 @@
     "@nx/vitest": "^22.1.3",
     "@nx/web": "22.1.3",
     "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.15",
     "@vitest/ui": "^4.0.15",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",

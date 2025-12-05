@@ -1,8 +1,6 @@
-/// <reference types="vitest" />
-
+import { defineConfig } from "vite";
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
-import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
@@ -50,15 +48,5 @@ export default defineConfig({
         globals: {},
       },
     },
-  },
-
-  test: {
-    globals: true,
-    environment: "node",
-    coverage: {
-      reportsDirectory: "./coverage",
-    },
-    reporters: ["verbose"],
-    include: ["test/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
   },
 });
