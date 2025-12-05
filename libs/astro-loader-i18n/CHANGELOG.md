@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.3
+
+### Patch Changes
+
+- d22d179: Override npm token
+
 ## 0.10.2
 
 ### Patch Changes
