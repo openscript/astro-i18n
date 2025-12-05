@@ -55,7 +55,8 @@
     "vite-plugin-dts": "^4.5.4"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "dependencies": {
     "@astrojs/compiler": "^2.13.0",

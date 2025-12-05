@@ -36,8 +36,8 @@ jobs:
       - name: Prepare packages
         run: pnpm prepublish
 
-      - name: Remove auth token from .npmrc for OIDC
-        run: sed -i '/_authToken/d' ~/.npmrc
-
       - name: Publish packages on NPM
-        run: NODE_AUTH_TOKEN="" pnpm publish -r --no-git-checks --provenance --access public
+        run:  pnpm publish -r --no-git-checks --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
