@@ -15,5 +15,8 @@
   },
   "forwardPorts": [
     4321
-  ]
+  ],
+  "containerEnv": {
+    "ASTRO_TELEMETRY_DISABLED": "1"
+  }
 }
