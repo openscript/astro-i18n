@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.5
+
+### Patch Changes
+
+- fc5c7dd: Add workflow call permissions
+
 ## 0.10.4
 
 ### Patch Changes
