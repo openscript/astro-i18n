@@ -1,5 +1,16 @@
 # astro-loader-i18n
 
+## 0.10.0
+
+### Minor Changes
+
+- fd1f6ee: Fix hot reload issue for file and content loader
+
+### Patch Changes
+
+- cd8d776: Upgrade dependencies
+- 442af4e: Consolidate vitest configuration
+
 ## 0.9.1
 
 ### Patch Changes
