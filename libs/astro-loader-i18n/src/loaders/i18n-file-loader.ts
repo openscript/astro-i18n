@@ -16,8 +16,9 @@ type FileOptions = Parameters<typeof file>;
  */
 export function i18nFileLoader(fileName: FileOptions[0], options?: FileOptions[1]): Loader {
   const fileLoader = file(fileName, options);
+  const load = createContentLoader(fileLoader);
   return {
     name: "i18n-file-loader",
-    load: createContentLoader(fileLoader),
+    load,
   };
 }

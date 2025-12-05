@@ -22,21 +22,23 @@ export function createContentLoader(loader: Loader, base?: GlobOptions["base"]) 
     };
     context.parseData = parseDataProxy;
 
-    await loader.load(context);
-
-    const entries = context.store.entries();
-    context.store.clear();
-
-    entries.forEach(([, entry]) => {
+    const storeSet = context.store.set;
+    const storeSetProxy: typeof storeSet = (entry) => {
       const entryLocales = Array.from(getAllUniqueKeys(entry.data)).filter((key) => localeCodes.includes(key));
+
       if (entryLocales.length === 0) {
-        context.store.set(entry);
+        return storeSet(entry);
       } else {
+        const results: boolean[] = [];
         entryLocales.forEach((locale) => {
           const entryData = pruneLocales(entry.data, entryLocales, locale);
-          context.store.set({ ...entry, id: `${entry.id}/${locale}`, data: { ...entryData, locale } });
+          results.push(storeSet({ ...entry, id: `${entry.id}/${locale}`, data: { ...entryData, locale } }));
         });
+        return results.every((result) => result);
       }
-    });
+    };
+    context.store.set = storeSetProxy;
+
+    await loader.load(context);
   };
 }

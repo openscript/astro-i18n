@@ -15,8 +15,9 @@ type GlobOptions = Parameters<typeof glob>[0];
  */
 export function i18nContentLoader(options: GlobOptions): Loader {
   const globLoader = glob(options);
+  const load = createContentLoader(globLoader, options.base);
   return {
     name: "i18n-content-loader",
-    load: createContentLoader(globLoader, options.base),
+    load,
   };
 }
