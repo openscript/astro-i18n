@@ -11,6 +11,9 @@ jobs:
   build-and-deploy:
     name: Build and deploy packages
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - name: Checkout repo
         uses: actions/checkout@v6
@@ -34,6 +37,4 @@ jobs:
         run: pnpm prepublish
 
       - name: Publish packages on NPM
-        run: pnpm publish -r --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: pnpm publish -r --no-git-checks --provenance --access public
