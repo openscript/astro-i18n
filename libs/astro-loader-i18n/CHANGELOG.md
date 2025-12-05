@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.7
+
+### Patch Changes
+
+- 60d759c: Fix publication
+
 ## 0.10.6
 
 ### Patch Changes

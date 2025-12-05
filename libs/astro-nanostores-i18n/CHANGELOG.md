@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.2.3
+
+### Patch Changes
+
+- 60d759c: Fix publication
+
 ## 0.2.2
 
 ### Patch Changes
