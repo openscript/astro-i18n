@@ -50,16 +50,16 @@ const infileCollection = await getCollection("infile");
           {entry.filePath} / {entry.id}
         </h3>
         <dl>
+          <dt>Icons</dt>
+          <dd>
+            {Array.isArray(entry.data.navigation)
+              ? entry.data.navigation.map((item) => <Image src={item.icon} alt={`Icon ${item.title}`} width={32} height={32} />)
+              : null}
+          </dd>
           {Object.entries(entry.data).map(([key, value]) => (
             <>
               <dt>{key}</dt>
               <dd>{JSON.stringify(value, null, 2)}</dd>
-              <dt>Icons</dt>
-              <dd>
-                {Array.isArray(entry.data.navigation)
-                  ? entry.data.navigation.map((navItem) => <Image src={navItem.icon} alt={`Icon ${navItem.title}`} width={32} height={32} />)
-                  : null}
-              </dd>
             </>
           ))}
         </dl>

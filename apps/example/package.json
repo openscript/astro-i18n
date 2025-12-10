@@ -8,7 +8,8 @@
     "astro": "^5.16.4",
     "astro-loader-i18n": "workspace:*",
     "astro-nanostores-i18n": "workspace:*",
-    "limax": "^4.2.1"
+    "limax": "^4.2.1",
+    "sharp": "^0.34.5"
   },
   "scripts": {
     "i18n:extract": "extract-messages"
