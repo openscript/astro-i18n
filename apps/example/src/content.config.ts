@@ -20,19 +20,21 @@ const folderCollection = defineCollection({
 });
 const infileCollection = defineCollection({
   loader: i18nContentLoader({ pattern: "**/[^_]*.{yml,yaml}", base: "./src/content/infile" }),
-  schema: extendI18nLoaderSchema(
-    z.object({
-      navigation: localized(
-        z.array(
-          z.object({
-            path: z.string(),
-            title: z.string(),
-          })
+  schema: ({ image }) =>
+    extendI18nLoaderSchema(
+      z.object({
+        navigation: localized(
+          z.array(
+            z.object({
+              path: z.string(),
+              title: z.string(),
+              icon: image(),
+            })
+          ),
+          C.LOCALES
         ),
-        C.LOCALES
-      ),
-    })
-  ),
+      })
+    ),
 });
 
 export const collections = {

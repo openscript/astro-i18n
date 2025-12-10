@@ -2,10 +2,14 @@ navigation:
   de-CH:
     - path: /projekte
       title: Projekte
+      icon: ./icon1.png
     - path: /ueber-mich
       title: Über mich
+      icon: ./icon1.png
   zh-CN:
     - path: /zh/projects
       title: 项目
+      icon: ./icon1.png
     - path: /zh/about-me
       title: 关于我
+      icon: ./icon1.png

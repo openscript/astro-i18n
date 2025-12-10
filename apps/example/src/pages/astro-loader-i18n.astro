@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Page from "../layouts/Page.astro";
+import { Image } from "astro:assets";
 
 const filesCollection = await getCollection("files");
 const folderCollection = await getCollection("folder");
@@ -46,7 +47,7 @@ const infileCollection = await getCollection("infile");
     infileCollection.map((entry) => (
       <>
         <h3>
-          {entry.filePath} / {entry.id}
+          {entry.filePath} / {entry.id} / <Image src={entry.data.icon} alt="Icon" width={32} height={32} />
         </h3>
         <dl>
           {Object.entries(entry.data).map(([key, value]) => (
