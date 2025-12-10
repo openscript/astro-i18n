@@ -1,5 +1,12 @@
 # astro-loader-i18n
 
+## 0.10.9
+
+### Patch Changes
+
+- 11229b5: Upgrade dependencies
+- fbe39e4: Fix content loader asset handling
+
 ## 0.10.8
 
 ### Patch Changes
