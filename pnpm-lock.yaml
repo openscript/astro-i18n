@@ -88,7 +88,7 @@ importers:
         version: link:../../libs/astro-nanostores-i18n
       limax:
         specifier: ^4.2.1
-        version: 4.2.1
+        version: 4.2.2
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
@@ -3205,8 +3205,8 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  limax@4.2.1:
-    resolution: {integrity: sha512-7YeQ8dV9XIjYIjBSFUSOfoxQFAtG2ckD0FGKYCuRaPJKc3IKXZwqsSLD5PnlPklp4y5ncPWhiL142ijAtHGNgw==}
+  limax@4.2.2:
+    resolution: {integrity: sha512-HhCTNSqrNHj2hZzFn2gNbdOukxSbsw7nSZ9cmn1TpvjvHvE1TuT523fgMpLTwzRdoNMujdyTeSNcs6TwiFa5aQ==}
     engines: {node: '>=14'}
 
   lines-and-columns@1.2.4:
@@ -3230,9 +3230,6 @@ packages:
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
-
-  lodash.deburr@4.1.0:
-    resolution: {integrity: sha512-m/M1U1f3ddMCs6Hq2tAsYThTBDaAKFDX3dwDo97GEYzamXi9SqUpjWi/Rrj/gf3X2n8ktwgZrlP1z6E3v/IExQ==}
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -8101,10 +8098,9 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  limax@4.2.1:
+  limax@4.2.2:
     dependencies:
       hepburn: 1.2.2
-      lodash.deburr: 4.1.0
       pinyin-pro: 3.27.0
       speakingurl: 14.0.1
 
@@ -8127,8 +8123,6 @@ snapshots:
       p-locate: 5.0.0
 
   lodash.debounce@4.0.8: {}
-
-  lodash.deburr@4.1.0: {}
 
   lodash.merge@4.6.2: {}
 
