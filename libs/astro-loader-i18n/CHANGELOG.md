@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.11
+
+### Patch Changes
+
+- 489751e: Adjust publication workflow
+
 ## 0.10.10
 
 ### Patch Changes
