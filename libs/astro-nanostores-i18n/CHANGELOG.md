@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.2.5
+
+### Patch Changes
+
+- a600287: Upgrade dependencies
+
 ## 0.2.4
 
 ### Patch Changes
