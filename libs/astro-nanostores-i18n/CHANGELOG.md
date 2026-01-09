@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.2.6
+
+### Patch Changes
+
+- 489751e: Adjust publication workflow
+
 ## 0.2.5
 
 ### Patch Changes
