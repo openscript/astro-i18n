@@ -103,7 +103,17 @@ await Promise.all(
 );
 
 if (Object.keys(allMessages).length > 0) {
-  const messagesJSON = Object.fromEntries(Object.entries(allMessages).map(([namespace, messages]) => [namespace, messages]));
+  const sortObject = (value: unknown): unknown => {
+    if (value === null || typeof value !== "object" || Array.isArray(value)) return value;
+
+    return Object.fromEntries(
+      Object.entries(value)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, entry]) => [key, sortObject(entry)])
+    );
+  };
+
+  const messagesJSON = sortObject(Object.fromEntries(Object.entries(allMessages).map(([namespace, messages]) => [namespace, messages])));
 
   await writeFile(values.out, JSON.stringify(messagesJSON, null, 2));
   process.exit(0);
