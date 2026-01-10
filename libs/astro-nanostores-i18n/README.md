@@ -43,12 +43,21 @@
      },
      integrations: [
        nanostoresI18n({
-         // Load your translations here.
+         /**
+          * Predefined translations to initialize the i18n store with.
+          * This should be an object where keys are locale codes and values are
+          * translation components in JSON format.
+          */
          translations: {
            "zh-CN": zhCN,
          },
-         // Detects and sets the locale based on the URL pathname.
-         // Default: false
+         /**
+          * Whether to automatically add middleware for locale detection.
+         * If enabled, the middleware will set the current locale based on the URL pathname.
+         * If disabled, you need to manage locale setting manually in your components or add your own middleware.
+         *
+         * @default false
+         */
          addMiddleware: true,
        }),
      ],
@@ -61,7 +70,8 @@
    import { useI18n, useFormat, currentLocale } from "astro-nanostores-i18n:runtime";
    import { count, params } from "@nanostores/i18n";
 
-   // Override the current locale if needed
+   // Override the current locale if needed.
+   // If you have enabled the middleware, this is usually not necessary.
    currentLocale.set("zh-CN");
 
    // Name the constant `messages` to be able to use the extraction script.
@@ -109,6 +119,7 @@ It has the following options:
 Usage: extract-messages [options]
 
 Options:
+  --identifier <name> Variable name to extract messages from (default: "messages")
   --glob <pattern>    Glob pattern for finding Astro files (default: "./src/**/*.astro")
   --out <path>        Output path for messages file (default: "./src/translations/extract.json")
   --help, -h          Show this help message

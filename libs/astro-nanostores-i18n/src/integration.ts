@@ -4,7 +4,25 @@ import { addVirtualImports, createResolver } from "astro-integration-kit";
 import { name } from "../package.json";
 
 type Options = {
+  /**
+   * Predefined translations to initialize the i18n store with.
+   * This should be an object where keys are locale codes and values are
+   * translation components in JSON format.
+   *
+   * @example
+   * {
+   *   "en": { "MyComponent": { "hello": "Hello" } },
+   *   "fr": { "MyComponent": { "hello": "Bonjour" } }
+   * }
+   */
   translations?: Record<string, ComponentsJSON>;
+  /**
+   * Whether to automatically add middleware for locale detection.
+   * If enabled, the middleware will set the current locale based on the URL pathname.
+   * If disabled, you need to manage locale setting manually in your components or add your own middleware.
+   *
+   * @default false
+   */
   addMiddleware?: boolean;
 };
 
