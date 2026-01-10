@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.3.0
+
+### Minor Changes
+
+- 82f4bcf: Sort extract output
+
 ## 0.2.6
 
 ### Patch Changes
