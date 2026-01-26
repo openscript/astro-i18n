@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.3.1
+
+### Patch Changes
+
+- ba8c3e0: Expose raw instances from nanostore/i18n for integration with other frameworks
+
 ## 0.3.0
 
 ### Minor Changes
