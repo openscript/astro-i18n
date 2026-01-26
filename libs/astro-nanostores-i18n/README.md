@@ -95,6 +95,27 @@
    </Page>
    ```
 
+### Using with other component frameworks (React, Vue, Solid, ...)
+
+While `useI18n` and `useFormat` work well within Astro components, you can use `getI18nInstance` and `getFormatterInstance` to access the underlying `@nanostores/i18n` instances directly. This allows you to build custom hooks or composables for your preferred framework.
+
+#### Example
+
+```ts
+import { useStore } from "@nanostores/react"; // or "@nanostores/vue" for Vue, etc.
+import type { Translations } from "@nanostores/i18n";
+import { getI18nInstance } from "astro-nanostores-i18n:runtime";
+
+export function useI18n<Body extends Translations>(
+  componentName: string,
+  baseTranslations: Body
+): Body {
+  const i18n = getI18nInstance();
+  const translations = useStore(i18n(componentName, baseTranslations));
+  return translations;
+}
+```
+
 ### Extracting translations
 
 `astro-nanostores-i18n` provides a script to extract translations from your Astro components. You can add the following script to your `package.json`:

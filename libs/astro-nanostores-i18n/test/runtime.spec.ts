@@ -24,4 +24,37 @@ describe("runtime.ts", () => {
     expect(i18n).toBeDefined();
     expect(i18n).toEqual({ hello: "Hello" });
   });
+  it("should throw an error if getI18nInstance is called before initialization", async () => {
+    const { getI18nInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    expect(() => getI18nInstance()).toThrowErrorMatchingSnapshot();
+  });
+  it("should return the i18n instance after initialization", async () => {
+    const { initializeI18n, getI18nInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n("en", {});
+    const instance = getI18nInstance();
+    expect(instance).toBeDefined();
+    expect(typeof instance).toBe("function");
+  });
+  it("should throw an error if getFormatterInstance is called before initialization", async () => {
+    const { getFormatterInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    expect(() => getFormatterInstance()).toThrowErrorMatchingSnapshot();
+  });
+  it("should return the formatter instance after initialization", async () => {
+    const { initializeI18n, getFormatterInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n("en", {});
+    const instance = getFormatterInstance();
+    expect(instance).toBeDefined();
+    expect(typeof instance.get).toBe("function");
+  });
+  it("should throw an error if useFormat is called before initialization", async () => {
+    const { useFormat } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    expect(() => useFormat()).toThrowErrorMatchingSnapshot();
+  });
+  it("should return a formatter function after initialization", async () => {
+    const { initializeI18n, useFormat } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n("en", {});
+    const formatter = useFormat();
+    expect(formatter).toBeDefined();
+    expect(typeof formatter).toBe("object");
+  });
 });

@@ -4,4 +4,6 @@ declare module "astro-nanostores-i18n:runtime" {
   export declare const initializeI18n: (defaultLocale: string, translations: Record<string, Components>) => void;
   export declare const useFormat: () => import("@nanostores/i18n").Formatter;
   export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
+  export declare const getI18nInstance: () => ReturnType<typeof import("@nanostores/i18n").createI18n>;
+  export declare const getFormatterInstance: () => ReturnType<typeof import("@nanostores/i18n").formatter>;
 }
