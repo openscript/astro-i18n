@@ -1,5 +1,12 @@
 # astro-nanostores-i18n
 
+## 0.4.0
+
+### Minor Changes
+
+- c17f725: Allow to clear the translations cache
+- f4f7a17: Enable dynamically loading of translations
+
 ## 0.3.1
 
 ### Patch Changes
