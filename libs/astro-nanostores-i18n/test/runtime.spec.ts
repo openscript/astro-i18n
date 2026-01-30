@@ -57,4 +57,40 @@ describe("runtime.ts", () => {
     expect(formatter).toBeDefined();
     expect(typeof formatter).toBe("object");
   });
+  it("should accept a custom get callback in initializeI18n", async () => {
+    const { initializeI18n, getI18nInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const getMock = vi.fn().mockResolvedValue({
+      testComponent: { hello: "Hallo" },
+    });
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {},
+      get: getMock,
+    });
+    const i18n = getI18nInstance();
+    expect(i18n).toBeDefined();
+    expect(typeof i18n).toBe("function");
+  });
+  it("should call the custom get callback when fetching translations for a new locale", async () => {
+    const { initializeI18n, currentLocale, getI18nInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const getMock = vi.fn().mockResolvedValue({
+      testComponent: { hello: "Hallo" },
+    });
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {},
+      get: getMock,
+    });
+    const i18n = getI18nInstance();
+    // Register and subscribe to a component (subscription triggers the loading)
+    const messages = i18n("testComponent", { hello: "Hello" });
+    messages.subscribe(() => { });
+    // Change to a locale that is not in the cache - this should trigger the get callback
+    currentLocale.set("de");
+    // Wait for the async get to be called
+    await vi.waitFor(() => {
+      expect(getMock).toHaveBeenCalled();
+    });
+    expect(getMock).toHaveBeenCalledWith("de", ["testComponent"]);
+  });
 });

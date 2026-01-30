@@ -71,7 +71,7 @@ describe("integration.ts", () => {
     const hook = i.hooks["astro:config:setup"];
     expect(hook).toBeDefined();
     if (hook) {
-      hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
+      hook(mockParams as unknown as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
     }
     expect(mockParams.addMiddleware).toHaveBeenCalledWith({
       entrypoint: "astro-nanostores-i18n/middleware",
