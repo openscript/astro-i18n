@@ -93,4 +93,70 @@ describe("runtime.ts", () => {
     });
     expect(getMock).toHaveBeenCalledWith("de", ["testComponent"]);
   });
+  it("should throw an error if clearCache is called before initialization", async () => {
+    const { clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    expect(() => clearCache()).toThrowErrorMatchingSnapshot();
+  });
+  it("should clear the entire cache when clearCache is called without arguments", async () => {
+    const { initializeI18n, getI18nInstance, clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {
+        de: { testComponent: { hello: "Hallo" } },
+        fr: { testComponent: { hello: "Bonjour" } },
+      },
+    });
+    const i18n = getI18nInstance();
+    expect(i18n.cache["de"]).toBeDefined();
+    expect(i18n.cache["fr"]).toBeDefined();
+    clearCache();
+    expect(i18n.cache["de"]).toBeUndefined();
+    expect(i18n.cache["fr"]).toBeUndefined();
+  });
+  it("should clear only a specific locale when clearCache is called with a locale", async () => {
+    const { initializeI18n, getI18nInstance, clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {
+        de: { testComponent: { hello: "Hallo" } },
+        fr: { testComponent: { hello: "Bonjour" } },
+      },
+    });
+    const i18n = getI18nInstance();
+    expect(i18n.cache["de"]).toBeDefined();
+    expect(i18n.cache["fr"]).toBeDefined();
+    clearCache("de");
+    expect(i18n.cache["de"]).toBeUndefined();
+    expect(i18n.cache["fr"]).toBeDefined();
+  });
+  it("should call the get callback again after cache is cleared for a locale", async () => {
+    const { initializeI18n, currentLocale, getI18nInstance, clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const getMock = vi.fn().mockResolvedValue({
+      testComponent: { hello: "Hallo" },
+    });
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {
+        de: { testComponent: { hello: "Hallo (cached)" } },
+      },
+      get: getMock,
+    });
+    const i18n = getI18nInstance();
+    // Register and subscribe to a component
+    const messages = i18n("testComponent", { hello: "Hello" });
+    messages.subscribe(() => { });
+    // Change to German - should use cached translation, get should NOT be called
+    currentLocale.set("de");
+    expect(getMock).not.toHaveBeenCalled();
+    // Clear the German cache
+    clearCache("de");
+    // Change to English first, then back to German to trigger a refetch
+    currentLocale.set("en");
+    currentLocale.set("de");
+    // Wait for the async get to be called
+    await vi.waitFor(() => {
+      expect(getMock).toHaveBeenCalled();
+    });
+    expect(getMock).toHaveBeenCalledWith("de", ["testComponent"]);
+  });
 });

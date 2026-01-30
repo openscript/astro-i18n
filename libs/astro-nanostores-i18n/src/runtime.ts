@@ -47,3 +47,22 @@ export const useFormat = () => {
 export const useI18n = <Body extends Translations>(componentName: string, baseTranslations: Body) => {
   return getI18nInstance()(componentName, baseTranslations).get();
 };
+
+/**
+ * Clears the translation cache. This can be useful when translations change
+ * and need to be refetched on the next render.
+ *
+ * @param locale - Optional. If provided, only clears the cache for the specified locale.
+ *                 If not provided, clears the entire cache (except the base locale).
+ */
+export const clearCache = (locale?: string) => {
+  if (!i18nInstance) throwNotInitialized();
+  const cache = i18nInstance.cache;
+  if (locale) {
+    delete cache[locale];
+  } else {
+    for (const key in cache) {
+      delete cache[key];
+    }
+  }
+};
