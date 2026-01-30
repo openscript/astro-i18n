@@ -34,7 +34,7 @@
     "@codecov/vite-plugin": "^1.9.1",
     "@eslint/js": "^9.39.2",
     "@types/node": "^24.10.4",
-    "astro": "^5.16.8",
+    "astro": "^5.17.1",
     "astro-utils-i18n": "workspace:*",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
