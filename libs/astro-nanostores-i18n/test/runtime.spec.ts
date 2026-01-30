@@ -84,7 +84,7 @@ describe("runtime.ts", () => {
     const i18n = getI18nInstance();
     // Register and subscribe to a component (subscription triggers the loading)
     const messages = i18n("testComponent", { hello: "Hello" });
-    messages.subscribe(() => { });
+    messages.subscribe(() => {});
     // Change to a locale that is not in the cache - this should trigger the get callback
     currentLocale.set("de");
     // Wait for the async get to be called
@@ -130,7 +130,8 @@ describe("runtime.ts", () => {
     expect(i18n.cache["fr"]).toBeDefined();
   });
   it("should call the get callback again after cache is cleared for a locale", async () => {
-    const { initializeI18n, currentLocale, getI18nInstance, clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const { initializeI18n, currentLocale, getI18nInstance, clearCache } =
+      await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
     const getMock = vi.fn().mockResolvedValue({
       testComponent: { hello: "Hallo" },
     });
@@ -144,7 +145,7 @@ describe("runtime.ts", () => {
     const i18n = getI18nInstance();
     // Register and subscribe to a component
     const messages = i18n("testComponent", { hello: "Hello" });
-    messages.subscribe(() => { });
+    messages.subscribe(() => {});
     // Change to German - should use cached translation, get should NOT be called
     currentLocale.set("de");
     expect(getMock).not.toHaveBeenCalled();
