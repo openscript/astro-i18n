@@ -146,6 +146,128 @@ Options:
   --help, -h          Show this help message
 ```
 
+### Dynamic Translation Loading
+
+Instead of bundling all translations upfront, you can dynamically fetch translations when needed using the `translationLoader` option. This is useful for:
+
+- Loading translations on-demand to reduce initial bundle size
+- Fetching translations from an API or CMS
+- Supporting a large number of locales without bundling them all
+
+#### Setup with `translationLoader`
+
+First, create a loader module that exports a default function:
+
+```ts
+// src/i18n/loader.ts
+import type { TranslationLoader } from "@nanostores/i18n";
+
+const loader: TranslationLoader = async (locale, components) => {
+  // Fetch translations from your API or file system
+  const response = await fetch(`/api/translations/${locale}.json`);
+  return response.json();
+};
+
+export default loader;
+```
+
+Then, reference it in your Astro config:
+
+```ts
+// astro.config.ts
+import { defineConfig } from "astro/config";
+import nanostoresI18n from "astro-nanostores-i18n";
+
+export default defineConfig({
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "de", "fr"],
+  },
+  integrations: [
+    nanostoresI18n({
+      translationLoader: "./src/i18n/loader.ts",
+      // You can still provide some translations upfront
+      translations: {
+        en: {
+          /* base translations */
+        },
+      },
+    }),
+  ],
+});
+```
+
+The loader function receives:
+
+- `locale` - The locale code to fetch translations for (e.g., `'de'`, `'fr'`)
+- `components` - An array of component names that need translations
+
+The function should return a promise that resolves to an object with translations organized by component name:
+
+```json
+{
+  "MyComponent": {
+    "hello": "Hallo",
+    "goodbye": "Auf Wiedersehen"
+  },
+  "AnotherComponent": {
+    "title": "Titel"
+  }
+}
+```
+
+#### Lazy Loading by Component Prefix
+
+For larger applications, you can organize translations by component prefixes and load them in chunks:
+
+```ts
+// src/i18n/loader.ts
+import type { TranslationLoader } from "@nanostores/i18n";
+
+const loader: TranslationLoader = async (locale, components) => {
+  // Extract unique prefixes from component names like "main/header", "settings/user"
+  const prefixes = [...new Set(components.map((name) => name.split("/")[0]))];
+
+  // Fetch translation chunks in parallel
+  const chunks = await Promise.all(prefixes.map((prefix) => fetch(`/translations/${locale}/${prefix}.json`).then((r) => r.json())));
+
+  // Merge all chunks into a single object
+  return chunks.reduce((acc, chunk) => ({ ...acc, ...chunk }), {});
+};
+
+export default loader;
+```
+
+Then name your components with prefixes:
+
+```ts
+const messages = useI18n("main/header", { title: "Welcome" });
+const settingsMessages = useI18n("settings/user", { name: "Name" });
+```
+
+### Clearing the Translation Cache
+
+The integration caches translations to avoid refetching them on every render. If your translations can change at runtime (e.g., updated via a CMS), you can clear the cache to force a refetch:
+
+```ts
+import { clearCache, currentLocale } from "astro-nanostores-i18n:runtime";
+
+// Clear cache for a specific locale
+clearCache("de");
+
+// Or clear the entire cache
+clearCache();
+
+// Trigger a refetch by changing the locale
+currentLocale.set("de");
+```
+
+This is particularly useful in scenarios like:
+
+- Live translation editing in a CMS
+- A/B testing different translations
+- Invalidating stale translations after a deployment
+
 ## Resources
 
 - https://lou.gg/blog/astro-integrations-explained

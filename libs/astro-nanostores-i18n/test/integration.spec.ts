@@ -78,4 +78,51 @@ describe("integration.ts", () => {
       order: "pre",
     });
   });
+  it("should register virtual module with translationLoader when provided", () => {
+    vi.mocked(addVirtualImports).mockClear();
+    const mockParams = {
+      config: { i18n: { defaultLocale: "en" } },
+      logger: {} as AstroIntegrationLogger,
+    };
+    const i = integration({ translationLoader: "./src/i18n/loader.ts" });
+    const hook = i.hooks["astro:config:setup"];
+    expect(hook).toBeDefined();
+    if (hook) {
+      hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
+    }
+    expect(vi.mocked(addVirtualImports).mock.calls.length).toBe(1);
+    expect(vi.mocked(addVirtualImports).mock.calls[0][1]).toMatchSnapshot();
+  });
+  it("should include translationLoader import in virtual module", () => {
+    vi.mocked(addVirtualImports).mockClear();
+    const mockParams = {
+      config: { i18n: { defaultLocale: "de" } },
+      logger: {} as AstroIntegrationLogger,
+    };
+    const i = integration({ translationLoader: "./src/custom-loader.ts" });
+    const hook = i.hooks["astro:config:setup"];
+    if (hook) {
+      hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
+    }
+    const imports = vi.mocked(addVirtualImports).mock.calls[0][1].imports as Record<string, string>;
+    const virtualModuleContent = imports["astro-nanostores-i18n:runtime"];
+    expect(virtualModuleContent).toContain('import translationLoader from "./src/custom-loader.ts"');
+    expect(virtualModuleContent).toContain("get: translationLoader");
+  });
+  it("should not include translationLoader import when not provided", () => {
+    vi.mocked(addVirtualImports).mockClear();
+    const mockParams = {
+      config: { i18n: { defaultLocale: "en" } },
+      logger: {} as AstroIntegrationLogger,
+    };
+    const i = integration({});
+    const hook = i.hooks["astro:config:setup"];
+    if (hook) {
+      hook(mockParams as Parameters<BaseIntegrationHooks["astro:config:setup"]>[0]);
+    }
+    const imports = vi.mocked(addVirtualImports).mock.calls[0][1].imports as Record<string, string>;
+    const virtualModuleContent = imports["astro-nanostores-i18n:runtime"];
+    expect(virtualModuleContent).not.toContain("import translationLoader");
+    expect(virtualModuleContent).not.toContain("get: translationLoader");
+  });
 });

@@ -24,7 +24,23 @@ exports[`integration.ts > should register virtual module 1`] = `
   "imports": {
     "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
 
+
 initializeI18n({ defaultLocale: "en", translations: {} });
+
+export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
+",
+  },
+  "name": "astro-nanostores-i18n",
+}
+`;
+
+exports[`integration.ts > should register virtual module with translationLoader when provided 1`] = `
+{
+  "imports": {
+    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
+import translationLoader from "./src/i18n/loader.ts";
+
+initializeI18n({ defaultLocale: "en", translations: {}, get: translationLoader });
 
 export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
 ",

@@ -24,6 +24,35 @@ type Options = {
    * @default false
    */
   addMiddleware?: boolean;
+  /**
+   * Optional callback function to dynamically fetch translations.
+   * Called when translations for a locale are not in the cache.
+   *
+   * The path to a module that exports a default function matching the TranslationLoader signature.
+   * The module should export a function that receives (locale, components) and returns a Promise
+   * with the translations.
+   *
+   * @example
+   * ```ts
+   * // astro.config.ts
+   * nanostoresI18n({
+   *   translationLoader: './src/i18n/loader.ts',
+   * })
+   * ```
+   *
+   * ```ts
+   * // src/i18n/loader.ts
+   * import type { TranslationLoader } from '@nanostores/i18n';
+   *
+   * const loader: TranslationLoader = async (locale, components) => {
+   *   const response = await fetch(`/api/translations/${locale}.json`);
+   *   return response.json();
+   * };
+   *
+   * export default loader;
+   * ```
+   */
+  translationLoader?: string;
 };
 
 /**
@@ -49,12 +78,16 @@ const createPlugin = (options: Options): AstroIntegration => {
           return;
         }
 
+        const loaderImport = options.translationLoader ? `import translationLoader from "${options.translationLoader}";` : "";
+        const loaderOption = options.translationLoader ? ", get: translationLoader" : "";
+
         addVirtualImports(params, {
           name,
           imports: {
             [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${resolve("./runtime.js")}";
+${loaderImport}
 
-initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})} });
+initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})}${loaderOption} });
 
 export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
 `,
