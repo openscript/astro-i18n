@@ -54,7 +54,7 @@ const createPlugin = (options: Options): AstroIntegration => {
           imports: {
             [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance } from "${resolve("./runtime.js")}";
 
-initializeI18n("${config.i18n.defaultLocale}", ${JSON.stringify(options.translations || {})});
+initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})} });
 
 export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance };
 `,
@@ -73,9 +73,14 @@ export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstanc
         injectTypes({
           filename: `${name}.d.ts`,
           content: `declare module "${name}:runtime" {
-  import type { Components, Translations } from '@nanostores/i18n';
+  import type { Components, TranslationLoader, Translations } from '@nanostores/i18n';
+  export interface InitializeI18nOptions {
+    defaultLocale: string;
+    translations: Record<string, Components>;
+    get?: TranslationLoader;
+  }
   export declare const currentLocale: import('nanostores').PreinitializedWritableAtom<string> & object;
-  export declare const initializeI18n: (defaultLocale: string, translations: Record<string, Components>) => void;
+  export declare const initializeI18n: (options: InitializeI18nOptions) => void;
   export declare const useFormat: () => import('@nanostores/i18n').Formatter;
   export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
   export declare const getI18nInstance: () => ReturnType<typeof import('@nanostores/i18n').createI18n>;
