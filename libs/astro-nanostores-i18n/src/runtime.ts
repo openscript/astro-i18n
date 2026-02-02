@@ -1,4 +1,4 @@
-import { Components, createI18n, formatter, type TranslationLoader, type Translations } from "@nanostores/i18n";
+import { Components, createI18n, formatter, translationsLoading, type TranslationLoader, type Translations } from "@nanostores/i18n";
 import { atom } from "nanostores";
 
 /**
@@ -184,6 +184,37 @@ export const useFormat = () => {
  */
 export const useI18n = <Body extends Translations>(componentName: string, baseTranslations: Body) => {
   return getI18nInstance()(componentName, baseTranslations).get();
+};
+
+/**
+ * Async version of useI18n that waits for translations to be loaded.
+ * Use this when you have a dynamic translation loader configured and need
+ * to ensure translations are fetched before rendering.
+ *
+ * @param componentName - A unique identifier for the component's translations.
+ * @param baseTranslations - The base (default) translations for the component.
+ * @returns A promise that resolves to the translations object for the current locale.
+ * @throws Error if called before `initializeI18n`.
+ *
+ * @example
+ * ```ts
+ * import { useI18nAsync } from 'astro-nanostores-i18n:runtime';
+ *
+ * const t = await useI18nAsync('MyComponent', {
+ *   hello: 'Hello',
+ *   goodbye: 'Goodbye',
+ * });
+ *
+ * console.log(t.hello); // 'Hello' (or translated value for current locale)
+ * ```
+ */
+export const useI18nAsync = async <Body extends Translations>(componentName: string, baseTranslations: Body): Promise<Body> => {
+  const i18n = getI18nInstance();
+  const store = i18n(componentName, baseTranslations);
+  const unsubscribe = store.listen(() => {});
+  await translationsLoading(i18n);
+  unsubscribe();
+  return store.get();
 };
 
 /**

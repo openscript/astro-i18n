@@ -216,6 +216,16 @@ The function should return a promise that resolves to an object with translation
 }
 ```
 
+Make sure to `useI18nAsync` in your components to support async loading:
+
+```ts
+import { useI18nAsync } from "astro-nanostores-i18n:runtime";
+const messages = await useI18nAsync("MyComponent", {
+  hello: "Hello",
+  goodbye: "Goodbye",
+});
+```
+
 #### Lazy Loading by Component Prefix
 
 For larger applications, you can organize translations by component prefixes and load them in chunks:

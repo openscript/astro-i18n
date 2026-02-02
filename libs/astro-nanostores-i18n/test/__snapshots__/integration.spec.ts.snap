@@ -12,6 +12,7 @@ exports[`integration.ts > should inject the types for the virtual module 1`] = `
   export declare const initializeI18n: (options: InitializeI18nOptions) => void;
   export declare const useFormat: () => import('@nanostores/i18n').Formatter;
   export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
+  export declare const useI18nAsync: <Body extends Translations>(componentName: string, baseTranslations: Body) => Promise<Body>;
   export declare const getI18nInstance: () => ReturnType<typeof import('@nanostores/i18n').createI18n>;
   export declare const getFormatterInstance: () => ReturnType<typeof import('@nanostores/i18n').formatter>;
   export declare const clearCache: (locale?: string) => void;
@@ -22,12 +23,12 @@ exports[`integration.ts > should inject the types for the virtual module 1`] = `
 exports[`integration.ts > should register virtual module 1`] = `
 {
   "imports": {
-    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
+    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
 
 
 initializeI18n({ defaultLocale: "en", translations: {} });
 
-export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
+export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
 ",
   },
   "name": "astro-nanostores-i18n",
@@ -37,12 +38,12 @@ export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstanc
 exports[`integration.ts > should register virtual module with translationLoader when provided 1`] = `
 {
   "imports": {
-    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
+    "astro-nanostores-i18n:runtime": "import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "./runtime.js";
 import translationLoader from "./src/i18n/loader.ts";
 
 initializeI18n({ defaultLocale: "en", translations: {}, get: translationLoader });
 
-export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
+export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
 ",
   },
   "name": "astro-nanostores-i18n",

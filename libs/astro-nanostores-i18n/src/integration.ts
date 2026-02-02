@@ -84,12 +84,12 @@ const createPlugin = (options: Options): AstroIntegration => {
         addVirtualImports(params, {
           name,
           imports: {
-            [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${resolve("./runtime.js")}";
+            [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${resolve("./runtime.js")}";
 ${loaderImport}
 
 initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})}${loaderOption} });
 
-export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
+export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
 `,
           },
         });
@@ -116,6 +116,7 @@ export { useFormat, useI18n, currentLocale, getI18nInstance, getFormatterInstanc
   export declare const initializeI18n: (options: InitializeI18nOptions) => void;
   export declare const useFormat: () => import('@nanostores/i18n').Formatter;
   export declare const useI18n: <Body extends Translations>(componentName: string, baseTranslations: Body) => Body;
+  export declare const useI18nAsync: <Body extends Translations>(componentName: string, baseTranslations: Body) => Promise<Body>;
   export declare const getI18nInstance: () => ReturnType<typeof import('@nanostores/i18n').createI18n>;
   export declare const getFormatterInstance: () => ReturnType<typeof import('@nanostores/i18n').formatter>;
   export declare const clearCache: (locale?: string) => void;

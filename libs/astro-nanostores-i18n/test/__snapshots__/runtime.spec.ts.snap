@@ -8,4 +8,6 @@ exports[`runtime.ts > should throw an error if getI18nInstance is called before 
 
 exports[`runtime.ts > should throw an error if useFormat is called before initialization 1`] = `[Error: i18n not initialized. Call initializeI18n first.]`;
 
+exports[`runtime.ts > should throw an error if useI18nAsync is called before initialization 1`] = `[Error: i18n not initialized. Call initializeI18n first.]`;
+
 exports[`runtime.ts > should throw an error, if i18n was not initialized and used 1`] = `[Error: i18n not initialized. Call initializeI18n first.]`;
