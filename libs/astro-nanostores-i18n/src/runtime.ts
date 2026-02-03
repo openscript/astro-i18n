@@ -243,10 +243,10 @@ export const clearCache = (locale?: string) => {
   if (!i18nInstance) throwNotInitialized();
   const cache = i18nInstance.cache;
   if (locale) {
-    delete cache[locale];
+    cache[locale] = {};
   } else {
     for (const key in cache) {
-      delete cache[key];
+      cache[key] = {};
     }
   }
 };

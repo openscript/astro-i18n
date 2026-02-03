@@ -110,8 +110,8 @@ describe("runtime.ts", () => {
     expect(i18n.cache["de"]).toBeDefined();
     expect(i18n.cache["fr"]).toBeDefined();
     clearCache();
-    expect(i18n.cache["de"]).toBeUndefined();
-    expect(i18n.cache["fr"]).toBeUndefined();
+    expect(i18n.cache["de"]).toEqual({});
+    expect(i18n.cache["fr"]).toEqual({});
   });
   it("should clear only a specific locale when clearCache is called with a locale", async () => {
     const { initializeI18n, getI18nInstance, clearCache } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
@@ -126,7 +126,7 @@ describe("runtime.ts", () => {
     expect(i18n.cache["de"]).toBeDefined();
     expect(i18n.cache["fr"]).toBeDefined();
     clearCache("de");
-    expect(i18n.cache["de"]).toBeUndefined();
+    expect(i18n.cache["de"]).toEqual({});
     expect(i18n.cache["fr"]).toBeDefined();
   });
   it("should call the get callback again after cache is cleared for a locale", async () => {
