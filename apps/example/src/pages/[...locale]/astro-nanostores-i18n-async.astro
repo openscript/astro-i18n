@@ -1,0 +1,49 @@
+---
+import Page from "../../layouts/Page.astro";
+import { useFormat, currentLocale } from "astro-nanostores-i18n:runtime";
+import { params } from "@nanostores/i18n";
+import { useI18nAsync } from "astro-nanostores-i18n:runtime";
+
+// Fake the non default locale
+export const getStaticPaths = async () => {
+  return [{ params: { locale: undefined } }, { params: { locale: "zh-CN" } }];
+};
+
+// useI18nAsync ensures translations are fully loaded before rendering
+// This is especially useful when you have a dynamic translation loader configured
+const messages = await useI18nAsync("fetchExample", {
+  title: "Fetch Translations Example",
+  description: "This page demonstrates useI18nAsync for fetching translations.",
+  greeting: params("Hello, {name}!"),
+});
+
+const format = useFormat();
+const locale = currentLocale.get();
+---
+
+<Page>
+  <h1>{messages.title}</h1>
+  <div>
+    <p><strong>Current Locale:</strong> {locale}</p>
+    <p><strong>Page Links:</strong></p>
+  </div>
+
+  <section>
+    <h2>About This Page</h2>
+    <p>{messages.description}</p>
+  </section>
+
+  <section>
+    <h2>Translation Features</h2>
+    <dl>
+      <dt>Parametrized Messages:</dt>
+      <dd>{messages.greeting({ name: "User" })}</dd>
+
+      <dt>Formatted Date:</dt>
+      <dd>{format.time(new Date())}</dd>
+
+      <dt>Formatted Number:</dt>
+      <dd>{format.number(1234.56)}</dd>
+    </dl>
+  </section>
+</Page>

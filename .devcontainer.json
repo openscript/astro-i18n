@@ -16,6 +16,11 @@
   "forwardPorts": [
     4321
   ],
+  "portsAttributes": {
+    "4321": {
+      "label": "Astro example app"
+    }
+  },
   "containerEnv": {
     "ASTRO_TELEMETRY_DISABLED": "1"
   }

@@ -6,5 +6,11 @@
       "one": "Ein Eintrag",
       "many": "{count} Einträge"
     }
+  },
+  "fetchExample": {
+    "title": "Beispiel für asynchrone Übersetzungen",
+    "description": "Diese Seite demonstriert useI18nAsync zum asynchronen Laden von Übersetzungen.",
+    "greeting": "Hallo, {name}!",
+    "status": "Übersetzungen werden asynchron geladen..."
   }
 }

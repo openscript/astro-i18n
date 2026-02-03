@@ -2,5 +2,11 @@
   "example": {
     "message": "某个消息。",
     "param": "带参数的消息：{irgendwas}"
+  },
+  "fetchExample": {
+    "title": "异步翻译示例",
+    "description": "此页面演示了 useI18nAsync 用于异步加载翻译的功能。",
+    "greeting": "你好，{name}！",
+    "status": "正在异步加载翻译..."
   }
 }
