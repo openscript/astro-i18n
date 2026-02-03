@@ -203,7 +203,8 @@ describe("runtime.ts", () => {
     expect(translations.hello).toBe("Hallo (cached)");
   });
   it("should refetch translations with useI18nAsync after cache is cleared", async () => {
-    const { initializeI18n, currentLocale, clearCache, useI18nAsync } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const { initializeI18n, currentLocale, clearCache, useI18nAsync } =
+      await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
     const getMock = vi.fn().mockResolvedValue({
       testComponent: { hello: "Hallo (fetched)" },
     });
