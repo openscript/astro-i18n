@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.4.1
+
+### Patch Changes
+
+- 5ad5710: Add useI18nAsync
+
 ## 0.4.0
 
 ### Minor Changes
