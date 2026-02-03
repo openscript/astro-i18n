@@ -1,5 +1,12 @@
 # astro-nanostores-i18n
 
+## 0.4.2
+
+### Patch Changes
+
+- 6d4ece9: Declare useI18nAsync in virtual types
+- 0dcdee9: Fix clearCache
+
 ## 0.4.1
 
 ### Patch Changes

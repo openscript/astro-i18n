@@ -1,6 +1,6 @@
 {
   "name": "astro-nanostores-i18n",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "An integration of @nanostores/i18n into Astro.",
   "keywords": [
     "astro",
