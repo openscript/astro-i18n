@@ -21,7 +21,7 @@ importers:
         specifier: 22.4.4
         version: 22.4.4(@babel/traverse@7.29.0)(nx@22.4.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(yaml@2.8.2))(vitest@4.0.18)
       '@nx/vitest':
-        specifier: ^22.4.3
+        specifier: ^22.4.4
         version: 22.4.4(@babel/traverse@7.29.0)(nx@22.4.4)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.9)(jiti@2.6.1)(yaml@2.8.2))(vitest@4.0.18)
       '@nx/web':
         specifier: 22.4.4
@@ -45,7 +45,7 @@ importers:
         specifier: ^5.5.4
         version: 5.5.5(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)))(eslint@9.39.2(jiti@2.6.1))(prettier@3.8.1)
       globals:
-        specifier: ^17.0.0
+        specifier: ^17.3.0
         version: 17.3.0
       jiti:
         specifier: 2.6.1
@@ -114,7 +114,7 @@ importers:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
       globals:
-        specifier: ^17.0.0
+        specifier: ^17.3.0
         version: 17.3.0
       tslib:
         specifier: ^2.8.1
@@ -172,7 +172,7 @@ importers:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
       globals:
-        specifier: ^17.0.0
+        specifier: ^17.3.0
         version: 17.3.0
       tslib:
         specifier: ^2.8.1
@@ -205,7 +205,7 @@ importers:
         specifier: ^9.39.2
         version: 9.39.2(jiti@2.6.1)
       globals:
-        specifier: ^17.0.0
+        specifier: ^17.3.0
         version: 17.3.0
       tslib:
         specifier: ^2.8.1
@@ -2448,8 +2448,8 @@ packages:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
 
-  caniuse-lite@1.0.30001766:
-    resolution: {integrity: sha512-4C0lfJ0/YPjJQHagaE9x2Elb69CIqEPZeG0anQt9SIvIoOH4a4uaRl73IavyO+0qZh6MDLH//DrXThEYKHkmYA==}
+  caniuse-lite@1.0.30001767:
+    resolution: {integrity: sha512-34+zUAMhSH+r+9eKmYG+k2Rpt8XttfE4yXAjoZvkAPs15xcYQhyBYdalJ65BzivAvGRMViEjy6oKr/S91loekQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -7336,7 +7336,7 @@ snapshots:
   browserslist@4.28.1:
     dependencies:
       baseline-browser-mapping: 2.9.19
-      caniuse-lite: 1.0.30001766
+      caniuse-lite: 1.0.30001767
       electron-to-chromium: 1.5.283
       node-releases: 2.0.27
       update-browserslist-db: 1.2.3(browserslist@4.28.1)
@@ -7362,7 +7362,7 @@ snapshots:
 
   camelcase@8.0.0: {}
 
-  caniuse-lite@1.0.30001766: {}
+  caniuse-lite@1.0.30001767: {}
 
   ccount@2.0.1: {}
 
