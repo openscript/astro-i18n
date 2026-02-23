@@ -32,11 +32,11 @@
   },
   "devDependencies": {
     "@codecov/vite-plugin": "^1.9.1",
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.0",
     "@types/node": "^24.10.4",
     "astro": "^5.17.1",
     "astro-utils-i18n": "workspace:*",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "globals": "^17.3.0",
     "tslib": "^2.8.1",
     "typescript": "^5.9.3",
