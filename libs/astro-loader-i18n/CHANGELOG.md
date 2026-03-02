@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.10.12
+
+### Patch Changes
+
+- b6a4b5a: Upgrade dependencies
+
 ## 0.10.11
 
 ### Patch Changes
