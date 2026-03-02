@@ -134,7 +134,7 @@ export const getI18nInstance = () => {
  * });
  * ```
  */
-export const getFormatterInstance = () => {
+export const getFormatterInstance = (): ReturnType<typeof formatter> => {
   if (!formatterInstance) throwNotInitialized();
   return formatterInstance;
 };
