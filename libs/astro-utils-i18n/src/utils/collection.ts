@@ -36,7 +36,7 @@ function recursivePruneLocales(obj: Record<string, unknown>, locales: string[], 
     } else if (value && typeof value === "object") {
       const valueAsRecord = value as Record<string, unknown>;
       const hasLocales = Object.keys(valueAsRecord).some((k) => locales.includes(k));
-      let prunedValue: unknown | undefined = undefined;
+      let prunedValue: unknown | undefined;
 
       if (hasLocales) {
         prunedValue = valueAsRecord[locale] ?? undefined;
