@@ -59,7 +59,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@astrojs/compiler": "^2.13.1",
+    "@astrojs/compiler": "^3.0.0",
     "astro-integration-kit": "^0.19.1",
     "fast-glob": "^3.3.3",
     "nanostores": "^1.1.1",
