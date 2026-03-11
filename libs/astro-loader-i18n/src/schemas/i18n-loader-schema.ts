@@ -24,7 +24,7 @@ export const i18nLoaderSchema = z.object({
  * @param schema - The Zod schema to extend the base `i18nLoaderSchema`.
  * @returns A new schema resulting from merging the base `i18nLoaderSchema` with the provided schema.
  */
-export const extendI18nLoaderSchema = <Z extends z.ZodObject>(schema: Z) => i18nLoaderSchema.extend(schema.shape);
+export const extendI18nLoaderSchema = <Z extends z.ZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
 
 const i18nLoaderEntrySchema = z.object({
   data: i18nLoaderSchema,

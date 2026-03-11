@@ -38,7 +38,7 @@
   ],
   "peerDependencies": {
     "@nanostores/i18n": "^1.2.0",
-    "astro": "^5.0.0 || ^6.0.0",
+    "astro": "^5.5.0 || ^6.0.0",
     "nanostores": "^1.0.1"
   },
   "devDependencies": {
