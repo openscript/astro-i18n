@@ -5,3 +5,4 @@ onlyBuiltDependencies:
   - esbuild
   - nx
   - sharp
+autoInstallPeers: true

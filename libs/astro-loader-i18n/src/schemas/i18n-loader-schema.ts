@@ -1,4 +1,4 @@
-import { AnyZodObject, z } from "astro/zod";
+import { z } from "astro/zod";
 
 /**
  * Schema definition for the i18n loader configuration.
@@ -24,7 +24,7 @@ export const i18nLoaderSchema = z.object({
  * @param schema - The Zod schema to extend the base `i18nLoaderSchema`.
  * @returns A new schema resulting from merging the base `i18nLoaderSchema` with the provided schema.
  */
-export const extendI18nLoaderSchema = <Z extends AnyZodObject>(schema: Z) => i18nLoaderSchema.merge(schema);
+export const extendI18nLoaderSchema = <Z extends z.ZodObject>(schema: Z) => i18nLoaderSchema.extend(schema.shape);
 
 const i18nLoaderEntrySchema = z.object({
   data: i18nLoaderSchema,
