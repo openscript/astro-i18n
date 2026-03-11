@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.11.0
+
+### Minor Changes
+
+- 5939399: Add compatibility with Astro 6
+
 ## 0.10.12
 
 ### Patch Changes
