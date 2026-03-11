@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.5.0
+
+### Minor Changes
+
+- 5939399: Add compatibility with Astro 6
+
 ## 0.4.3
 
 ### Patch Changes
