@@ -24,6 +24,18 @@ describe("runtime.ts", () => {
     expect(i18n).toBeDefined();
     expect(i18n).toEqual({ hello: "Hello" });
   });
+  it("should return the translated message from the store using useI18n", async () => {
+    const { initializeI18n, currentLocale, useI18n } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {
+        de: { testComponent: { hello: "Hallo (cached)" } },
+      },
+    });
+    currentLocale.set("de");
+    const messages = useI18n("testComponent", { hello: "Hello (usage)" });
+    expect(messages.hello).toBe("Hallo (cached)");
+  });
   it("should throw an error if getI18nInstance is called before initialization", async () => {
     const { getI18nInstance } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
     expect(() => getI18nInstance()).toThrowErrorMatchingSnapshot();
@@ -202,8 +214,8 @@ describe("runtime.ts", () => {
     expect(getMock).not.toHaveBeenCalled();
     expect(translations.hello).toBe("Hallo (cached)");
   });
-  it("should refetch translations with useI18nAsync after cache is cleared", async () => {
-    const { initializeI18n, currentLocale, clearCache, useI18nAsync } =
+  it("should refetch translations with useI18nAsync and useI18n after cache is cleared", async () => {
+    const { initializeI18n, currentLocale, clearCache, useI18nAsync, useI18n } =
       await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
     const getMock = vi.fn().mockResolvedValue({
       testComponent: { hello: "Hallo (fetched)" },
@@ -216,6 +228,8 @@ describe("runtime.ts", () => {
       get: getMock,
     });
     currentLocale.set("de");
+    const messages = useI18n("testComponent", { hello: "Hello" });
+    expect(messages.hello).toBe("Hallo (cached)");
     // First call should use cache
     const cached = await useI18nAsync("testComponent", { hello: "Hello" });
     expect(cached.hello).toBe("Hallo (cached)");
@@ -225,5 +239,11 @@ describe("runtime.ts", () => {
     const fetched = await useI18nAsync("testComponent", { hello: "Hello" });
     expect(getMock).toHaveBeenCalledWith("de", ["testComponent"]);
     expect(fetched.hello).toBe("Hallo (fetched)");
+    // Clear default locale cache and switch back
+    clearCache("en");
+    currentLocale.set("en");
+    const fetchedDefault = await useI18nAsync("testComponent", { hello: "Hello" });
+    expect(getMock).not.toHaveBeenCalledWith("en", ["testComponent"]);
+    expect(fetchedDefault.hello).toBe("Hallo (fetched)");
   });
 });
