@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 0.11.1
+
+### Patch Changes
+
+- be16522: Upgrade to Vite 8
+
 ## 0.11.0
 
 ### Minor Changes
