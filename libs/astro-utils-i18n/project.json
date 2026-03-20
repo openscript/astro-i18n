@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "libs/astro-utils-i18n/dist",
         "generatePackageJson": false
@@ -14,7 +16,9 @@
     },
     "dev": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "libs/astro-utils-i18n/dist",
         "watch": true,
@@ -22,21 +26,27 @@
       }
     },
     "prepare": {
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "command": "cp LICENSE libs/astro-utils-i18n && rm libs/astro-utils-i18n/dist/package.json"
     },
     "test": {
       "executor": "@nx/vitest:test",
-      "outputs": ["{options.reportsDirectory}"],
+      "outputs": [
+        "{options.reportsDirectory}"
+      ],
       "options": {
-        "reportsDirectory": "./coverage",
+        "reportsDirectory": "./libs/astro-utils-i18n/coverage",
         "coverage": true,
         "configFile": "{workspaceRoot}/vitest.config.ts"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "outputs": [
+        "{options.outputFile}"
+      ]
     }
   },
   "tags": []
