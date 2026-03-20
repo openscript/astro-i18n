@@ -1,6 +1,4 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "nxConsole.generateAiAgentRules": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": true,
   "[typescript]": {
@@ -16,11 +14,11 @@
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[json]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "js/ts.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
 }
