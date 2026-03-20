@@ -23,6 +23,10 @@
       "import": "./dist/integration.js",
       "types": "./dist/integration.d.ts"
     },
+    "./runtime": {
+      "import": "./dist/runtime.js",
+      "types": "./dist/runtime.d.ts"
+    },
     "./middleware": {
       "import": "./dist/middleware.js",
       "types": "./dist/middleware.d.ts"

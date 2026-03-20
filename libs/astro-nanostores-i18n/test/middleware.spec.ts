@@ -19,7 +19,7 @@ vi.mock("astro:config/client", () => ({
   },
 }));
 
-vi.mock("astro-nanostores-i18n:runtime", () => ({
+vi.mock("astro-nanostores-i18n/runtime", () => ({
   currentLocale: {
     set: mockCurrentLocaleSet,
   },
