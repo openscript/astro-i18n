@@ -1,5 +1,12 @@
 # astro-nanostores-i18n
 
+## 0.5.1
+
+### Patch Changes
+
+- 4e3b4e8: Use non-virtual exports in middleware (see #214)
+- be16522: Upgrade to Vite 8
+
 ## 0.5.0
 
 ### Minor Changes
