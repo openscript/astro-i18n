@@ -3,12 +3,12 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/mdx": "^5.0.2",
     "@nanostores/i18n": "^1.2.2",
-    "astro": "^6.0.4",
+    "astro": "^6.0.7",
     "astro-loader-i18n": "workspace:*",
     "astro-nanostores-i18n": "workspace:*",
-    "limax": "^4.2.2",
+    "limax": "^4.2.3",
     "sharp": "^0.34.5"
   },
   "scripts": {
