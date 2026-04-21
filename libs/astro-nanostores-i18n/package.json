@@ -46,7 +46,7 @@
     "nanostores": "^1.0.1"
   },
   "devDependencies": {
-    "@codecov/vite-plugin": "^1.9.1",
+    "@codecov/vite-plugin": "^2.0.0",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.5.0",
     "astro": "^6.0.7",
