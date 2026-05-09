@@ -5,7 +5,7 @@
   "license": "MIT",
   "author": "Robin Bühler",
   "repository": "github:openscript/astro-i18n",
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@11.0.9",
   "type": "module",
   "scripts": {
     "dev": "pnpm exec nx run-many --nx-bail --target=dev --parallel 10 --output-style stream",
