@@ -1,7 +1,9 @@
 import type { ComponentsJSON } from "@nanostores/i18n";
 import type { AstroIntegration } from "astro";
-import { addVirtualImports, createResolver } from "astro-integration-kit";
 import { name } from "../package.json";
+
+const VIRTUAL_MODULE_ID = `${name}:runtime`;
+const RESOLVED_VIRTUAL_MODULE_ID = `\0${VIRTUAL_MODULE_ID}`;
 
 type Options = {
   /**
@@ -64,7 +66,6 @@ type Options = {
  * @returns {AstroIntegration} The Astro integration object.
  */
 const createPlugin = (options: Options): AstroIntegration => {
-  const { resolve } = createResolver(import.meta.url);
   return {
     name,
     hooks: {
@@ -81,16 +82,28 @@ const createPlugin = (options: Options): AstroIntegration => {
         const loaderImport = options.translationLoader ? `import translationLoader from "${options.translationLoader}";` : "";
         const loaderOption = options.translationLoader ? ", get: translationLoader" : "";
 
-        addVirtualImports(params, {
-          name,
-          imports: {
-            [`${name}:runtime`]: `import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${resolve("./runtime.js")}";
+        const runtimePath = new URL("./runtime.js", import.meta.url).href;
+        const virtualModuleContent = `import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${runtimePath}";
 ${loaderImport}
 
 initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})}${loaderOption} });
 
 export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
-`,
+`;
+
+        params.updateConfig({
+          vite: {
+            plugins: [
+              {
+                name: VIRTUAL_MODULE_ID,
+                resolveId(id) {
+                  if (id === VIRTUAL_MODULE_ID) return RESOLVED_VIRTUAL_MODULE_ID;
+                },
+                load(id) {
+                  if (id === RESOLVED_VIRTUAL_MODULE_ID) return virtualModuleContent;
+                },
+              },
+            ],
           },
         });
 

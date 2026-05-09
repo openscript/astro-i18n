@@ -64,7 +64,6 @@
   },
   "dependencies": {
     "@astrojs/compiler": "^3.0.1",
-    "astro-integration-kit": "^0.20.0",
     "fast-glob": "^3.3.3",
     "nanostores": "^1.2.0",
     "typescript": "^5.9.3"
