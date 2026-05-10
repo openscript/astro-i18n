@@ -84,8 +84,8 @@ export interface InitializeI18nOptions {
  */
 export const initializeI18n = (options: InitializeI18nOptions) => {
   const { defaultLocale, translations, get } = options;
-  currentLocale.set(defaultLocale);
   if (!i18nInstance) {
+    currentLocale.set(defaultLocale);
     i18nInstance = createI18n(currentLocale, {
       baseLocale: defaultLocale,
       /* v8 ignore next */
