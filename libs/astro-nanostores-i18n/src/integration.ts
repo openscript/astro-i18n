@@ -82,8 +82,7 @@ const createPlugin = (options: Options): AstroIntegration => {
         const loaderImport = options.translationLoader ? `import translationLoader from "${options.translationLoader}";` : "";
         const loaderOption = options.translationLoader ? ", get: translationLoader" : "";
 
-        const runtimePath = new URL("./runtime.js", import.meta.url).href;
-        const virtualModuleContent = `import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${runtimePath}";
+        const virtualModuleContent = `import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "${name}/runtime";
 ${loaderImport}
 
 initializeI18n({ defaultLocale: "${config.i18n.defaultLocale}", translations: ${JSON.stringify(options.translations || {})}${loaderOption} });

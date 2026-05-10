@@ -19,3 +19,13 @@ exports[`integration.ts > should inject the types for the virtual module 1`] = `
 }
 "
 `;
+
+exports[`integration.ts > should register virtual module 1`] = `
+"import { initializeI18n, useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache } from "astro-nanostores-i18n/runtime";
+
+
+initializeI18n({ defaultLocale: "en", translations: {} });
+
+export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache };
+"
+`;

@@ -40,12 +40,7 @@ describe("integration.ts", () => {
     const content = updateConfig.mock.calls[0][0].vite.plugins[0].load("");
     expect(content).toBeUndefined();
     const virtualContent = updateConfig.mock.calls[0][0].vite.plugins[0].load("\0astro-nanostores-i18n:runtime") as string;
-    expect(virtualContent).toContain('from "');
-    expect(virtualContent).toContain('runtime.js"');
-    expect(virtualContent).toContain('initializeI18n({ defaultLocale: "en", translations: {} })');
-    expect(virtualContent).toContain(
-      "export { useFormat, useI18n, useI18nAsync, currentLocale, getI18nInstance, getFormatterInstance, clearCache }"
-    );
+    expect(virtualContent).toMatchSnapshot();
   });
   it("should inject the types for the virtual module", () => {
     const mockParams = {
@@ -93,7 +88,7 @@ describe("integration.ts", () => {
     }
     expect(updateConfig.mock.calls.length).toBe(1);
     const virtualContent = updateConfig.mock.calls[0][0].vite.plugins[0].load("\0astro-nanostores-i18n:runtime") as string;
-    expect(virtualContent).toContain('runtime.js"');
+    expect(virtualContent).toContain('astro-nanostores-i18n/runtime"');
     expect(virtualContent).toContain('initializeI18n({ defaultLocale: "en", translations: {}, get: translationLoader })');
     expect(virtualContent).toContain('import translationLoader from "./src/i18n/loader.ts"');
   });
