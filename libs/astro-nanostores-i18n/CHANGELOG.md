@@ -1,5 +1,16 @@
 # astro-nanostores-i18n
 
+## 0.6.0
+
+### Minor Changes
+
+- fe93c0e: Upgrade to Typescript 6; Distribute as non-minified
+
+### Patch Changes
+
+- 893e69e: Upgrade dependencies
+- d401165: Fix current locale default initialization
+
 ## 0.5.1
 
 ### Patch Changes

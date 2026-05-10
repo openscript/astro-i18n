@@ -1,5 +1,15 @@
 # astro-loader-i18n
 
+## 0.12.0
+
+### Minor Changes
+
+- fe93c0e: Upgrade to Typescript 6; Distribute as non-minified
+
+### Patch Changes
+
+- 893e69e: Upgrade dependencies
+
 ## 0.11.1
 
 ### Patch Changes
