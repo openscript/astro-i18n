@@ -1,4 +1,4 @@
-import { Components, createI18n, formatter, translationsLoading, type TranslationLoader, type Translations } from "@nanostores/i18n";
+import { Components, ComponentsJSON, createI18n, formatter, translationsLoading, type TranslationLoader, type Translations } from "@nanostores/i18n";
 import { atom } from "nanostores";
 
 /**
@@ -89,12 +89,40 @@ export const initializeI18n = (options: InitializeI18nOptions) => {
     i18nInstance = createI18n(currentLocale, {
       baseLocale: defaultLocale,
       /* v8 ignore next */
-      get: get ?? (async () => ({})),
+      get: wrapLoader(get ?? (async () => ({}))),
       cache: translations,
       isSSR: true,
     });
   }
   formatterInstance = formatter(currentLocale);
+};
+
+/**
+ * Wraps a {@link TranslationLoader} so that the returned object is guaranteed
+ * to contain a key for every requested component.
+ *
+ * `@nanostores/i18n` uses the keys of the object returned from `get` to clear
+ * its internal "requested" set. If a requested component is missing from the
+ * result (e.g. because the backend has no translations for that component in
+ * the given locale yet), the internal loading atom is never set back to
+ * `false`, which causes {@link useI18nAsync} / `translationsLoading` to hang
+ * forever.
+ *
+ * This wrapper normalises the loader output so missing components are filled
+ * in with empty translation objects, falling back to the base translations
+ * defined at the call site.
+ */
+const wrapLoader = (loader: TranslationLoader): TranslationLoader => {
+  return async (code, components) => {
+    const result = (await loader(code, components)) ?? {};
+    const normalised: ComponentsJSON = Array.isArray(result) ? Object.assign({}, ...result) : { ...result };
+    for (const component of components) {
+      if (!(component in normalised)) {
+        normalised[component] = {};
+      }
+    }
+    return normalised;
+  };
 };
 
 /**

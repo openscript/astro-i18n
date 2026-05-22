@@ -246,4 +246,45 @@ describe("runtime.ts", () => {
     expect(getMock).not.toHaveBeenCalledWith("en", ["testComponent"]);
     expect(fetchedDefault.hello).toBe("Hallo (fetched)");
   });
+  it("should not hang in useI18nAsync when the loader omits a requested component", async () => {
+    const { initializeI18n, currentLocale, useI18nAsync } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    // Loader returns an empty object — simulates a backend that has no
+    // translations for the requested component in this locale yet.
+    const getMock = vi.fn().mockResolvedValue({});
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {},
+      get: getMock,
+    });
+    currentLocale.set("de");
+
+    // Without the wrapping fix in initializeI18n, this would hang forever
+    // because @nanostores/i18n's internal `requested` set would never be
+    // cleared and `translationsLoading` would never resolve.
+    const translations = await Promise.race([
+      useI18nAsync("testComponent", { hello: "Hello" }),
+      new Promise<never>((_, reject) => setTimeout(() => reject(new Error("useI18nAsync hung")), 1000)),
+    ]);
+
+    expect(getMock).toHaveBeenCalledWith("de", ["testComponent"]);
+    // Falls back to the base translations supplied at the call site.
+    expect(translations.hello).toBe("Hello");
+  });
+  it("should normalise array-shaped loader results and still backfill missing components", async () => {
+    const { initializeI18n, currentLocale, useI18nAsync } = await vi.importActual<typeof import("../src/runtime.ts")>("../src/runtime.ts");
+    const getMock = vi.fn().mockResolvedValue([{ otherComponent: { foo: "bar" } }]);
+    initializeI18n({
+      defaultLocale: "en",
+      translations: {},
+      get: getMock,
+    });
+    currentLocale.set("de");
+
+    const translations = await Promise.race([
+      useI18nAsync("testComponent", { hello: "Hello" }),
+      new Promise<never>((_, reject) => setTimeout(() => reject(new Error("useI18nAsync hung")), 1000)),
+    ]);
+
+    expect(translations.hello).toBe("Hello");
+  });
 });

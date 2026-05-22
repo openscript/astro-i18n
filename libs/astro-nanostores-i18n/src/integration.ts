@@ -53,6 +53,12 @@ type Options = {
    *
    * export default loader;
    * ```
+   *
+   * The loader may return an object that does not contain every requested
+   * component (for example because the backend has no translations for it in
+   * the given locale yet). The integration normalizes the result so missing
+   * components fall back to the base translations supplied at the call site —
+   * you do not need to backfill empty entries yourself.
    */
   translationLoader?: string;
 };
