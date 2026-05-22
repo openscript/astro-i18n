@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 0.7.0
+
+### Minor Changes
+
+- ac2ad68: Gracefully backfill missing components instead of hanging forever
+
 ## 0.6.0
 
 ### Minor Changes
