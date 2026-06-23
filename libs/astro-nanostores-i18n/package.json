@@ -42,14 +42,14 @@
   ],
   "peerDependencies": {
     "@nanostores/i18n": "^1.2.0",
-    "astro": "^5.5.0 || ^6.0.0",
+    "astro": "^5.5.0 || ^6.0.0 || ^7.0.0",
     "nanostores": "^1.0.1"
   },
   "devDependencies": {
     "@codecov/vite-plugin": "^2.0.1",
     "@eslint/js": "^10.0.1",
     "@types/node": "^25.9.1",
-    "astro": "^6.3.7",
+    "astro": "^7.0.0",
     "astro-utils-i18n": "workspace:*",
     "eslint": "^10.4.0",
     "globals": "^17.6.0",
