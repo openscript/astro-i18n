@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 1.0.0
+
+### Major Changes
+
+- 45ad31a: Include Astro v7 support
+
 ## 0.12.0
 
 ### Minor Changes
