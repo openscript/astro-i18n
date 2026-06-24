@@ -1,4 +1,12 @@
-import { Components, ComponentsJSON, createI18n, formatter, translationsLoading, type TranslationLoader, type Translations } from "@nanostores/i18n";
+import {
+  Components,
+  ComponentsJSON,
+  createI18n,
+  formatter,
+  translationsLoading,
+  type TranslationLoader,
+  type Translations,
+} from "@nanostores/i18n";
 import { atom } from "nanostores";
 
 /**
