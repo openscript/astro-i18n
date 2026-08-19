@@ -31,7 +31,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish
-        uses: changesets/action@v1
+        uses: changesets/action@v2.1.1
         id: changesets
         with:
           version: pnpm version
