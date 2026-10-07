@@ -30,7 +30,7 @@
       "dependsOn": [
         "build"
       ],
-      "command": "cp LICENSE libs/astro-utils-i18n && rm libs/astro-utils-i18n/dist/package.json"
+      "command": "cp LICENSE libs/astro-utils-i18n"
     },
     "lint": {
       "executor": "@nx/eslint:lint",

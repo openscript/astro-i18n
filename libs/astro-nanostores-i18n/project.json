@@ -30,7 +30,7 @@
       "dependsOn": [
         "build"
       ],
-      "command": "cp LICENSE libs/astro-nanostores-i18n && rm libs/astro-nanostores-i18n/dist/package.json"
+      "command": "cp LICENSE libs/astro-nanostores-i18n"
     },
     "lint": {
       "executor": "@nx/eslint:lint",
