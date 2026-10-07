@@ -1,5 +1,11 @@
 # astro-loader-i18n
 
+## 1.0.1
+
+### Patch Changes
+
+- 2d9b32c: Upgrade all dependencies.
+
 ## 1.0.0
 
 ### Major Changes
