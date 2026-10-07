@@ -1,6 +1,6 @@
 {
   "name": "astro-i18n",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:24-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:26-bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
