@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 1.0.2
+
+### Patch Changes
+
+- 8edc646: Fix a bug in the prepublish script.
+
 ## 1.0.1
 
 ### Patch Changes
