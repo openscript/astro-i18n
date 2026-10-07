@@ -6,4 +6,3 @@ allowBuilds:
   esbuild: true
   nx: true
   sharp: true
-minimumReleaseAge: 0
