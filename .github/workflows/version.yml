@@ -9,6 +9,9 @@ jobs:
   version-packages:
     name: Version packages
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -27,13 +30,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         id: changesets
         with:
-          commit: "chore: publish new release"
-          title: "chore: publish new release"
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          commit-message: "chore: publish new release"
+          pr-title: "chore: publish new release"
 
       - name: Get current branch
         id: get_branch
