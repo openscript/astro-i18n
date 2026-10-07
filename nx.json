@@ -32,5 +32,24 @@
     }
   },
   "useDaemonProcess": false,
-  "analytics": false
+  "analytics": false,
+  "neverConnectToCloud": true,
+  "plugins": [
+    {
+      "plugin": "@nx/vitest",
+      "options": {
+        "testTargetName": "test",
+        "ciTargetName": "test-ci",
+        "testMode": "watch"
+      },
+      "include": [
+        "libs/astro-loader-i18n/**/*",
+        "libs/astro-nanostores-i18n/**/*",
+        "libs/astro-utils-i18n/**/*"
+      ]
+    }
+  ],
+  "tui": {
+    "enabled": false
+  }
 }

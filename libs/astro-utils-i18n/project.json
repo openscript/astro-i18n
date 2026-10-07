@@ -1,8 +1,9 @@
 {
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "name": "astro-utils-i18n",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/astro-utils-i18n/src",
   "projectType": "library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
@@ -31,23 +32,11 @@
       ],
       "command": "cp LICENSE libs/astro-utils-i18n && rm libs/astro-utils-i18n/dist/package.json"
     },
-    "test": {
-      "executor": "@nx/vitest:test",
-      "outputs": [
-        "{options.reportsDirectory}"
-      ],
-      "options": {
-        "reportsDirectory": "./libs/astro-utils-i18n/coverage",
-        "coverage": true,
-        "configFile": "{workspaceRoot}/vitest.config.ts"
-      }
-    },
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": [
         "{options.outputFile}"
       ]
     }
-  },
-  "tags": []
+  }
 }

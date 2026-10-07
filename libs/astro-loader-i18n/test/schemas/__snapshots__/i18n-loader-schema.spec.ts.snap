@@ -1,7 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`i18nLoaderSchema > should extend the schema 1`] = `"{"translationId":{"def":{"type":"string"},"type":"string","format":null,"minLength":null,"maxLength":null},"locale":{"def":{"type":"string"},"type":"string","format":null,"minLength":null,"maxLength":null},"contentPath":{"def":{"type":"string"},"type":"string","format":null,"minLength":null,"maxLength":null},"basePath":{"def":{"type":"string"},"type":"string","format":null,"minLength":null,"maxLength":null},"title":{"def":{"type":"string"},"type":"string","format":null,"minLength":null,"maxLength":null}}"`;
-
 exports[`i18nLoaderSchema > should throw an error when checkI18nLoaderCollection fails 1`] = `
 [Error: Invalid collection entry was provided to astro-i18n-loader. Did you forget to use "extendI18nLoaderSchema" to extend the schema in your "content.config.js" definition? Validation failed with:
 
