@@ -36,18 +36,3 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           commit-message: "chore: publish new release"
           pr-title: "chore: publish new release"
-
-      - name: Get current branch
-        id: get_branch
-        run: echo "CURRENT_BRANCH=$(git branch --show-current)" >> $GITHUB_ENV
-
-      - name: Update lock file
-        if: env.CURRENT_BRANCH == 'changeset-release/main'
-        run: pnpm install --lockfile-only
-
-      - name: Commit lock file
-        if: env.CURRENT_BRANCH == 'changeset-release/main'
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "chore: update lock file"
-          branch: changeset-release/main
