@@ -1,5 +1,11 @@
 # astro-nanostores-i18n
 
+## 1.0.3
+
+### Patch Changes
+
+- 96da145: Upgrade dependencies
+
 ## 1.0.2
 
 ### Patch Changes
