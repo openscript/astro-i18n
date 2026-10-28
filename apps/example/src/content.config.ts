@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { extendI18nLoaderSchema, i18nContentLoader, i18nLoader, localized } from "astro-loader-i18n";
 import { C } from "./site.config";
 
