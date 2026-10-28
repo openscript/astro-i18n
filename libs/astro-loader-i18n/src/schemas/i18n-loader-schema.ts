@@ -1,4 +1,5 @@
 import { z } from "astro/zod";
+import { resolveI18nReferences } from "./i18n-reference";
 
 /**
  * Schema definition for the i18n loader configuration.
@@ -28,7 +29,8 @@ type ZodObjectLike<Shape extends z.ZodRawShape = z.ZodRawShape> = {
   shape: Shape;
 };
 
-export const extendI18nLoaderSchema = <Shape extends z.ZodRawShape>(schema: ZodObjectLike<Shape>) => i18nLoaderSchema.extend(schema.shape);
+export const extendI18nLoaderSchema = <Shape extends z.ZodRawShape>(schema: ZodObjectLike<Shape>) =>
+  i18nLoaderSchema.extend(schema.shape).transform((data) => resolveI18nReferences(data, (data as { locale: string }).locale));
 
 const i18nLoaderEntrySchema = z.object({
   data: i18nLoaderSchema,

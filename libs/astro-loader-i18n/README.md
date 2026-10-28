@@ -380,6 +380,19 @@ Parameters:
 
 `extendI18nLoaderSchema` is a helper function to extend the schema of the `i18nLoader` and `i18nContentLoader`. It adds the `translationId`, `locale`, `contentPath` and `basePath` properties to the schema.
 
+### `i18nReference`
+
+`i18nReference(collection, { idFormat })` works like Astro's `reference()`, but adds the locale of the referencing entry to the referenced id. In `another.en.md`, `example: example` resolves to the `en` entry (`exampleen`). It requires the schema to be wrapped with `extendI18nLoaderSchema`.
+
+`idFormat` must match the ids of the target collection:
+- `"suffix"` (default): `{id}{locale}`, for `example.en.md` files loaded with `i18nLoader`. Astro slugifies these ids, so the locale is lowercased (`de-CH` becomes `de-ch`).
+- `"folder"`: `{locale}/{id}`, for `en/example.md` files loaded with `i18nLoader` (locale lowercased as well).
+- `"file"`: `{id}/{locale}`, for `i18nContentLoader` and `i18nFileLoader`.
+
+```ts
+schema: extendI18nLoaderSchema(z.object({ example: i18nReference("example") })),
+```
+
 ### `i18nLoaderSchema`
 
 `i18nLoaderSchema` is a schema that is used by the `i18nLoader` and `i18nContentLoader`. It defines the properties that are added to the entrys `data` object.
