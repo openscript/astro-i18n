@@ -6,24 +6,22 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "nx:run-commands",
       "outputs": [
-        "{options.outputPath}"
+        "{projectRoot}/dist"
       ],
       "options": {
-        "outputPath": "libs/astro-nanostores-i18n/dist",
-        "generatePackageJson": false
+        "command": "vite build",
+        "cwd": "{projectRoot}"
       }
     },
     "dev": {
-      "executor": "@nx/vite:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "executor": "nx:run-commands",
+      "continuous": true,
+      "cache": false,
       "options": {
-        "outputPath": "libs/astro-nanostores-i18n/dist",
-        "watch": true,
-        "generatePackageJson": false
+        "command": "vite build --watch",
+        "cwd": "{projectRoot}"
       }
     },
     "prepare": {

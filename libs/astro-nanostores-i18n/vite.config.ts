@@ -3,7 +3,7 @@ import { codecovVitePlugin } from "@codecov/vite-plugin";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  root: __dirname,
+  root: import.meta.dirname,
   cacheDir: "../../node_modules/.vite/libs/astro-nanostores-i18n",
   resolve: {
     tsconfigPaths: true,

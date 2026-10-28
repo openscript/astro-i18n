@@ -3,7 +3,7 @@ import dts from "vite-plugin-dts";
 import { codecovVitePlugin } from "@codecov/vite-plugin";
 
 export default defineConfig({
-  root: __dirname,
+  root: import.meta.dirname,
   cacheDir: "../../node_modules/.vite/libs/astro-loader-i18n",
   resolve: {
     tsconfigPaths: true,
