@@ -1,5 +1,15 @@
 # astro-loader-i18n
 
+## 1.1.0
+
+### Minor Changes
+
+- a50e1c8: Add `i18nReference` to reference translated entries without spelling out the locale
+
+### Patch Changes
+
+- 96da145: Upgrade dependencies
+
 ## 1.0.2
 
 ### Patch Changes
